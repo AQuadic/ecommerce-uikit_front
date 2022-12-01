@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { createContext, useState } from 'react';
+import { Provider, useSelector } from 'react-redux';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from './components/Home';
+import Navbar2 from './components/Navbar';
+import Owlone from './components/Owlone';
+import Forget from './Email/Forget';
+import Login from './Email/Login';
+import Signup from './Email/Signup';
+import Product from './product/Product';
+
+import Pay from './product/Pay';
+import store from './data/counterSilce';
+import All_product from './product/All_product';
+export const Contextid = createContext();
 function App() {
+  const [id,setid]=useState("gooool");
+  const filter = (id)=>{
+    console.log(id)
+  }
+
   return (
+  <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      <BrowserRouter>
+     <Navbar2/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/product' element={<Product/>}/>
+        <Route path='/login' element={<Login filter={filter}/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/forget' element={<Forget/>}/>
+        <Route path='/pay' element={<Pay/>}/>
+        <Route path='/allproduct' element={<All_product/>}/>
+
+
+
+      </Routes>
+      </BrowserRouter>
+    
     </div>
+    </Provider>
   );
 }
 
