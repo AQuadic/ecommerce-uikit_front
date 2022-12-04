@@ -73,7 +73,7 @@ function Owlone() {
           <div className="item">
             <img
               id="ahmed"
-              src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
+              src="./images/stock-photo-conf.svg"
               alt="t-shert"
               onClick={(e) => {
                 setgetitem({ id: e.target.id, imgurl: e.target.src });
