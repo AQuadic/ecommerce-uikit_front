@@ -1,7 +1,8 @@
 {
-  "homepage": "https://ibrahem-hassan2000.github.io/project_ecommerce/",
+  
   "name": "uikit",
   "version": "0.1.0",
+  "homepage":"https://github.com/ibrahem-hassan2000/commerce_project.git",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

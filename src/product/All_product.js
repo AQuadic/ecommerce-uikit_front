@@ -3,9 +3,9 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import According from '../components/According'
-import All_image from '../components/All-image'
+import AllImage from '../components/AllImage'
 import Footer from '../components/Footer'
-import About_product from './About_product'
+import AboutProduct from './AboutProduct'
 
 function All_product() {
   return (
@@ -30,12 +30,12 @@ function All_product() {
 <div className='product-show'>
 
 <According/>
-<About_product/>
+<AboutProduct/>
 </div>
 
 
 
-  <All_image/>
+  <AllImage/>
   <Footer/>
   </Container>
   </>

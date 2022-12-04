@@ -22,9 +22,9 @@ const [promo,setpromo]=useState()
    <div className='shopping'>
     <h2>Shopping Cart</h2>
     <div className='shopping-icon'>
-      <img src="./images/active shop.svg"></img>
+      <img src="./images/active shop.svg" alt=''></img>
       <span></span>
-      <img src="./images/noun_delivery_1665162.svg"></img>
+      <img src="./images/noun_delivery_1665162.svg" alt=''></img>
 
     </div>
    </div>
@@ -47,7 +47,7 @@ const [promo,setpromo]=useState()
       allitem.map((item)=><>
        <tr key="44">
     <td className='fristtd' >
-    <img src={item. imgurl}/>
+    <img src={item.imgurl} alt=''/>
     <div className='about'>
       <h2>{item.id}</h2>
       <p className='codeproduct'>#261311</p>

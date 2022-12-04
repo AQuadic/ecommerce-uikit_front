@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Container, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 function Forget() {
   const navegate = useNavigate();

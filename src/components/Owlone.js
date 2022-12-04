@@ -1,17 +1,8 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-
-import { Button, Card, Container } from "react-bootstrap";
-
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 
@@ -59,7 +50,7 @@ function Owlone() {
   });
 
   useEffect(() => {}, [how]);
-  const { owl, idowl,sendata } = counteraction;
+  const { owl, idowl, sendata } = counteraction;
   return (
     <>
       <Container>
@@ -86,8 +77,8 @@ function Owlone() {
               alt="t-shert"
               onClick={(e) => {
                 setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }))
-                
+                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
+
                 window.scrollTo(100, 100);
                 sethow(e.target.id);
                 dispatch(owl(e.target.src));
@@ -110,7 +101,7 @@ function Owlone() {
               alt="t-shert"
               onClick={(e) => {
                 setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }))
+                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
                 window.scrollTo(100, 100);
                 sethow(e.target.id);
                 dispatch(owl(e.target.src));
@@ -131,7 +122,7 @@ function Owlone() {
               alt="t-shert"
               onClick={(e) => {
                 setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }))
+                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
                 window.scrollTo(100, 100);
                 sethow(e.target.id);
                 dispatch(owl(e.target.src));
@@ -148,7 +139,7 @@ function Owlone() {
             <img
               onClick={(e) => {
                 setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }))
+                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
                 window.scrollTo(100, 100);
                 sethow(e.target.id);
                 dispatch(owl(e.target.src));

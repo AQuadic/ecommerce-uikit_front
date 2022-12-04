@@ -1,10 +1,10 @@
 import React from "react";
-import { Accordion, Form } from "react-bootstrap";
+import {  Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 
-function About_product() {
+function AboutProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { owl, idowl,sendata } = counteraction;
@@ -188,4 +188,4 @@ function About_product() {
   );
 }
 
-export default About_product;
+export default AboutProduct;

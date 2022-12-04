@@ -1,7 +1,6 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Navbar2() {
@@ -15,7 +14,7 @@ function Navbar2() {
       <div className="container">
         <div className="allnav">
         <nav className="navbar navbar-expand-lg navbar-light ">
-          <Link className="navbar-brand" to="/"> <img src="./images/noun_cloth_2129414.svg" alt="logo icon1" />
+          <Link className="navbar-brand" to="/"> <img src='./images/noun_cloth_2129414.svg' alt="logo icon1" />
             <h1><span className="recolor">E-</span> Shop</h1>
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,14 +36,14 @@ function Navbar2() {
             
             <ul className="nav-icon">
               <li>
-                <img src="./images/noun_Search_2102816 (2).svg" alt=""  />
+                <img src='./images/noun_Search_2102816 (2).svg' alt=""  />
               </li>
               <li >
-                <img onClick={()=>navegate('/allproduct')} src="./images/noun_cart_2102832 (4).svg" alt=""  />
+                <img onClick={()=>navegate('/allproduct')} src='./images/noun_cart_2102832 (4).svg' alt=""  />
                 <p onClick={()=>navegate('/pay')}>{qi}</p>
               </li>
               <li onClick={()=>{navegate('/login')}}>
-                <img src="./images/noun_avatar_2102861 (2).svg" alt=""  />
+                <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
               </li>
             </ul>
           </div>

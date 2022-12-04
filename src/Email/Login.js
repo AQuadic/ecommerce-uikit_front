@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Card, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -56,8 +56,8 @@ const {inc}=counteraction;
                 <Link to="/forget">Forgot Password?</Link>
               </div>
               <div className="w-100 Link-email ">
-                <Link  ><img src="./images/Facebook.svg"/></Link>
-                <Link><img src="./images/Gmail.svg"/></Link>
+                <Link  ><img src="./images/Facebook.svg" alt=""/></Link>
+                <Link><img src="./images/Gmail.svg" alt=""/></Link>
 
               </div>
 

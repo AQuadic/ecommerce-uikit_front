@@ -1,11 +1,11 @@
 
-import { createContext, useState } from 'react';
-import { Provider, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { createContext } from 'react';
+import { Provider} from 'react-redux';
+import { BrowserRouter,  Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import Navbar2 from './components/Navbar';
-import Owlone from './components/Owlone';
+
 import Forget from './Email/Forget';
 import Login from './Email/Login';
 import Signup from './Email/Signup';
@@ -16,7 +16,7 @@ import store from './data/counterSilce';
 import All_product from './product/All_product';
 export const Contextid = createContext();
 function App() {
-  const [id,setid]=useState("gooool");
+
   const filter = (id)=>{
     console.log(id)
   }
@@ -26,9 +26,10 @@ function App() {
     <div className="App">
      
       <BrowserRouter>
+    
      <Navbar2/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/'  element={<Home/>}/>
         <Route path='/product' element={<Product/>}/>
         <Route path='/login' element={<Login filter={filter}/>}/>
         <Route path='/signup' element={<Signup/>}/>

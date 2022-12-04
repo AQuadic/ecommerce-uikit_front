@@ -1,6 +1,6 @@
 import React from 'react'
 
-function All_image() {
+function AllImage() {
   return (
   <>
   <div className="imageall">
@@ -21,4 +21,4 @@ function All_image() {
   )
 }
 
-export default All_image
+export default AllImage

@@ -3,14 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 
-function Ts_summer() {
+
+
+
+function TsSummer() {
   const navegate = useNavigate();
   const srcimage = useSelector((state) => state.counter.id);
   const valname = useSelector((state) => state.counter.name);
   const countTs = useSelector((state) => state.counter.countts);
-  const allitem = useSelector((state) => state.counter.allitem);
+  /*const allitem = useSelector((state) => state.counter.allitem);*/
   const getdata = useSelector((state) => state.counter.getdata);
- 
 
  const [love ,setlove]=useState(false);
 
@@ -47,11 +49,11 @@ function Ts_summer() {
               <>
               
                 <img
-                  src="./images/AdobeStock_236655482.svg"
+                  src='./images/AdobeStock_236655482.svg'
                   className="image1"
                   alt=""
                 />
-                <img src="./images/AdobeStock_236655483.svg" alt="" />
+                <img src='./images/AdobeStock_236655483.svg' alt="" />
               </>
             )}
           </div>
@@ -158,4 +160,4 @@ function Ts_summer() {
   );
 }
 
-export default Ts_summer;
+export default TsSummer;
