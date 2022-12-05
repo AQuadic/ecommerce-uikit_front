@@ -1,18 +1,12 @@
-import React, {  useRef, useState } from 'react'
+import React, {  useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function Nav2() {
-    const [we ,setwe]=useState("")
-    const navref =useRef()
-    window.onresize=()=>{
-      
-            setwe(navref.current.clientWidth)
-        console.log(we)
-    }
-   
+function Nav2(props) {
+    const we =props.we;
+ 
   return (
   <>
-  <div className="nav2" ref={navref} >
+  <div className="nav2"  >
   <div className="container">
     <div className="crump">
       <nav aria-label="breadcrumb">

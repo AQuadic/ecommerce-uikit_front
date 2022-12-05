@@ -43,8 +43,8 @@ const [promo,setpromo]=useState()
       <tbody>
       {
       allitem[0] ? 
-      allitem.map((item)=><>
-       <tr key="44">
+      allitem.map((item)=>
+       <tr key={Math.random()}>
     <td className='fristtd' >
     <img src={item.imgurl} alt=''/>
     <div className='about'>
@@ -58,7 +58,7 @@ const [promo,setpromo]=useState()
       <td >${(item.qiitem*90)-0.01}</td>
       <td  onClick={()=>{dispatch(removeitem(item.id))}} >X</td>
     </tr>
-      </>):<tr>
+      ):<tr>
       <td ></td>
       <td ></td>
       <td ></td>
@@ -77,7 +77,7 @@ const [promo,setpromo]=useState()
 </div>
   <div className=''><input type="text" placeholder='Promo Code' onChange={(e)=>{setpromo(e.target.value)}}></input></div>
   <div className=''><h4 className='totel-cost'><span>Total cost   </span>     ${totalprice === 1 ?"0":totalprice }</h4></div>
-  <div className=''><button className='check' onClick={()=>{promo? navigate('/login'):alert("please Enter promo code ")}}>CHECKOUT</button></div>
+  <div className=''><button className='check' onClick={()=>{promo? navigate('/payment'):alert("please Enter promo code ")}}>CHECKOUT</button></div>
 </div>
 
     </div>

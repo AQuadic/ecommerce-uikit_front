@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Payment() {
   const navigate = useNavigate();
   const [promo, setpromo] = useState();
+  const    itempay = useSelector(state => state.counter.itempay)
+  const totalprice = useSelector((state) => state.counter.totelprice);
+  console.log(itempay)
   return (
     <Container>
       <div>
@@ -19,8 +23,8 @@ function Payment() {
         <div className="about-payment">
           <div className="part1">
             <div className="log-sin">
-              <button className="log">Log in</button>
-              <button className="sin">SIGN UP</button>
+              <button className="log" onClick={()=>navigate("/login")}>Log in</button>
+              <button className="sin" onClick={()=>navigate("/signup")}>SIGN UP</button>
             </div>
             <div className="shipping-information">
               <h2>Shipping information</h2>
@@ -132,37 +136,31 @@ function Payment() {
           <div className="part3">
             <h2>Your cart</h2>
             <div className="your-cart">
-             <div className="order-about">
+              {
+                itempay.map((item)=>{
+                  return(
+                    <div key={Math.random()} className="order-about">
              
-              <img src="./images/Mask Group 8.svg"/>
-              <div className="order-name">
-                <h3>T-Shirt 
-Summer Vibes</h3><p>#261311</p>
-             </div>
-             <h4 className="order-salary">$89.99</h4>
-             </div>
-             <div className="order-about">
-             
-             <img src="./images/Mask Group 8.svg"/>
-             <div className="order-name">
-               <h3>T-Shirt 
-Summer Vibes</h3><p>#261311</p>
-            </div>
-            <h4 className="order-salary">$89.99</h4>
-            </div>
-            <div className="order-about">
-             
-             <img src="./images/Mask Group 8.svg"/>
-             <div className="order-name">
-               <h3>T-Shirt 
-Summer Vibes</h3><p>#261311</p>
-            </div>
-            <h4 className="order-salary">$89.99</h4>
-            </div>
+                    <img src={item.imgurl}/>
+                    <div className="order-name">
+                      <h3>{item.qiitem} _ {item.id}</h3>
+                      <p>#261311</p>
+                   </div>
+                   <h4 className="order-salary">${(item.qiitem*90)-0.01}</h4>
+                   </div>
+                  )
+                })
+              }
+            
             <div className="payment-total">
               <h3>Total cost</h3>
-              <h4>$159,98</h4>
+              <h4>${totalprice}</h4>
             </div>
+            </div>
+            <div className="price-dlivery">
+              <img src="./images/noun_delivery_2057282.svg" />
+              <p>You are <span>$30,02</span> away
+from free shipping!</p>
             </div>
           </div>
         </div>
@@ -179,26 +177,18 @@ Summer Vibes</h3><p>#261311</p>
             </button>
           </div>
         <div className="btn-shopping">
-        <div className="">
-            <input
-              type="text"
-              placeholder="Promo Code"
-              onChange={(e) => {
-                setpromo(e.target.value);
-              }}
-            ></input>
-          </div>
+      
+        <button className="btn-continue" onClick={()=>navigate("/allproduct ")}>Continue shopping</button>
+        
 
-          <div className="">
+        
             <button
               className="check"
-              onClick={() => {
-                promo ? navigate("/login") : alert("please Enter promo code ");
-              }}
+              onClick={() => alert("successful operation")}
             >
               Proceed to payment
             </button>
-          </div>
+         
         </div>
         </div>
       </div>

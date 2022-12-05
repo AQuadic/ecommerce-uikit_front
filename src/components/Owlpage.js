@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 
-function Owlpage() {
+function Owlpage(props) {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -15,17 +15,13 @@ function Owlpage() {
       slidesToSlide: 1,
     },
   };
-  const [we ,setwe]=useState(1000)
-    const backref =useRef()
-    window.onresize=()=>{
-      
-            setwe(backref.current.clientWidth)
-        console.log(we)
-    }
+ 
+    const we = props.we
+   
    
   return (
     <>
-     <div ref={backref} className="owlnav">
+     <div className="owlnav">
      <img className="gray" src='./images/beautiful-clothing-fashion-2498791.svg' alt=""/>
        {
         we>560?<> <Carousel

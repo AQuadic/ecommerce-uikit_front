@@ -250,7 +250,13 @@ a,a:hover {
   
 
  }
- 
+ @media (max-width: 440px) {
+  .div .to,
+.div .three {
+  width: 100%;
+  max-width: 100%;
+}
+ }
 /*end collection*/
 /* start choose*/
 .choose {
@@ -1703,11 +1709,13 @@ gap: 10px;
 .about-payment .part1 .log{
 margin: 0;
 }
-.about-payment .part1 .sin {
+.about-payment .part1 .sin,.btn-shopping  .btn-continue {
   border: 1px solid #D8D8D8;
   background: transparent;
   padding: 12px 40px;
   border-radius: 32px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 .shipping-information {
   max-width: 550px;
@@ -1730,8 +1738,11 @@ margin-bottom: 22px;
   margin-bottom: 20px;
   padding: 15px 30px;
   font-size: 14px;
-  color: #D8D8D8;
+ 
   border:  1px solid #D8D8D8;
+}
+.shipping-information .forms input::placeholder{
+  color: #ABABAB;
 }
 .about-payment .part2{
   
@@ -1759,7 +1770,11 @@ width: 276px;
   margin-bottom: 10px;
 } 
 .about-payment .part3 .your-cart .order-about img{
-  
+  border-radius: 50%;
+    height: 50px;
+    object-fit: cover;
+    object-position: top;
+    width: 50px;
 }
 .about-payment .part3 .your-cart .order-about .order-name {
   margin: 0px 16px;
@@ -1803,6 +1818,26 @@ margin: 0;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+}
+.btn-shopping  .btn-continue{
+ 
+}
+.about-payment .part3 .price-dlivery {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: calc(100% - 66px);
+  margin: 52px auto 0px;
+
+}
+.about-payment .part3 .price-dlivery p{
+  margin: 0;
+  font-size: 14px;
+font-weight: 300;
+}
+.about-payment .part3 .price-dlivery p span{
+  margin: 0;
+  font-weight: bold;
 }
 @media(max-width:992px){
   .about-payment {

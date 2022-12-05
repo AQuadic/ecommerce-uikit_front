@@ -1,5 +1,5 @@
 
-import { createContext } from 'react';
+import { createContext, useRef, useState } from 'react';
 import { Provider} from 'react-redux';
 import { BrowserRouter,  Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -21,17 +21,24 @@ function App() {
   const filter = (id)=>{
     console.log(id)
   }
-
+  const [we ,setwe]=useState("")
+  const navref =useRef()
+  window.onresize=()=>{
+    
+          setwe(navref.current.clientWidth)
+    
+  }
+ 
   return (
   <Provider store={store}>
-    <div className="App">
+    <div className="App" ref={navref}>
      
       <BrowserRouter>
     
      <Navbar2/>
       <Routes>
-        <Route path='/'  element={<Home/>}/>
-        <Route path='/product' element={<Product/>}/>
+        <Route path='/'  element={<Home  we={we} />}/>
+        <Route path='/product' element={<Product we={we}/>}/>
         <Route path='/login' element={<Login filter={filter}/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/forget' element={<Forget/>}/>

@@ -7,11 +7,11 @@ import AllImage from "./AllImage";
 import Owlpage from "./Owlpage";
 
 
-function Home() {
-  console.log(document.dir)
+function Home(props) {
+  
   return (
     <>  
-    <Owlpage/>
+    <Owlpage we={props.we}/>
 <div className="div">
   <div className="container">
     <div className="one">
