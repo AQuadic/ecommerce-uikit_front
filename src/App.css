@@ -683,7 +683,7 @@ flex-wrap: wrap;
   margin-bottom: 50px;
 }
   }
-  @media (max-width: 340px) {
+  @media (max-width: 405px) {
     .dec .headbtn button{
       width: 120px;
       height: 50px;
