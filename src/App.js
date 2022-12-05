@@ -1,5 +1,5 @@
 
-import { createContext, useRef, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 import { Provider} from 'react-redux';
 import { BrowserRouter,  Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -23,6 +23,9 @@ function App() {
   }
   const [we ,setwe]=useState("")
   const navref =useRef()
+  useEffect(()=>{
+    setwe(navref.current.clientWidth)
+  },[])
   window.onresize=()=>{
     
           setwe(navref.current.clientWidth)
