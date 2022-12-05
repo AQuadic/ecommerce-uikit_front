@@ -36,7 +36,7 @@ function AboutProduct() {
         >
           <img
             id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
+            src="./images/stock-photo-conf.svg"
             alt="t-shert"
           />
           <div className="sale">30%</div>
@@ -71,7 +71,7 @@ function AboutProduct() {
         <div className="item">
           <img
             id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
+            src="./images/stock-photo-conf.svg"
             alt="t-shert"
           />
           <div className="sale">30%</div>
@@ -91,58 +91,7 @@ function AboutProduct() {
         >
           <img
             id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
-            alt="t-shert"
-          />
-          <div className="sale">30%</div>
-          <div className="about">
-            <p>T-Shirt Summer Vibes</p>
-            <span className="red">$89.99</span>
-            <span className="ops">$119.99</span>
-          </div>
-        </div>
-        <div className="item"
-          onClick={(e) => {
-            window.scrollTo(100, 100);
-            navigate("/product");
-            dispatch(owl(e.target.src));
-            dispatch(idowl(e.target.id));
-          }}
-        >
-          <img
-            id="sayed"
-            src="./images/AdobeStock_118120200.svg"
-            alt="t-shert"
-          />
-          <div className="about">
-            <p>Loose Knit 3/4 Sleeve</p>
-            <span>$119.99</span>
-          </div>
-        </div>
-        <div className="item">
-          <img
-            id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
-            alt="t-shert"
-          />
-          <div className="sale">30%</div>
-          <div className="about">
-            <p>T-Shirt Summer Vibes</p>
-            <span className="red">$89.99</span>
-            <span className="ops">$119.99</span>
-          </div>
-        </div>
-        <div className="item"
-          onClick={(e) => {
-            window.scrollTo(100, 100);
-            navigate("/product");
-            dispatch(owl(e.target.src));
-            dispatch(idowl(e.target.id));
-          }}
-        >
-          <img
-            id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
+            src="./images/stock-photo-conf.svg"
             alt="t-shert"
           />
           <div className="sale">30%</div>
@@ -173,7 +122,58 @@ function AboutProduct() {
         <div className="item">
           <img
             id="ahmed"
-            src="./images/stock-photo-confident-in-his-style-full-length-of-good-looking-young-man-keeping-hand-in-pocket-and-looking-at-720914785.svg"
+            src="./images/stock-photo-conf.svg"
+            alt="t-shert"
+          />
+          <div className="sale">30%</div>
+          <div className="about">
+            <p>T-Shirt Summer Vibes</p>
+            <span className="red">$89.99</span>
+            <span className="ops">$119.99</span>
+          </div>
+        </div>
+        <div className="item"
+          onClick={(e) => {
+            window.scrollTo(100, 100);
+            navigate("/product");
+            dispatch(owl(e.target.src));
+            dispatch(idowl(e.target.id));
+          }}
+        >
+          <img
+            id="ahmed"
+            src="./images/stock-photo-conf.svg"
+            alt="t-shert"
+          />
+          <div className="sale">30%</div>
+          <div className="about">
+            <p>T-Shirt Summer Vibes</p>
+            <span className="red">$89.99</span>
+            <span className="ops">$119.99</span>
+          </div>
+        </div>
+        <div className="item"
+          onClick={(e) => {
+            window.scrollTo(100, 100);
+            navigate("/product");
+            dispatch(owl(e.target.src));
+            dispatch(idowl(e.target.id));
+          }}
+        >
+          <img
+            id="sayed"
+            src="./images/AdobeStock_118120200.svg"
+            alt="t-shert"
+          />
+          <div className="about">
+            <p>Loose Knit 3/4 Sleeve</p>
+            <span>$119.99</span>
+          </div>
+        </div>
+        <div className="item">
+          <img
+            id="ahmed"
+            src="./images/stock-photo-conf.svg"
             alt="t-shert"
           />
           <div className="sale">30%</div>

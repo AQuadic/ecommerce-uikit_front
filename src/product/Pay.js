@@ -16,15 +16,14 @@ const navigate = useNavigate();
 const [promo,setpromo]=useState()
   return (
     <Container>
-    <div>
-        <h1>{valname}</h1>
-        <h2>{countTs}</h2>
+    <div className='all-shopping'>
+      
    <div className='shopping'>
     <h2>Shopping Cart</h2>
     <div className='shopping-icon'>
       <img src="./images/active shop.svg" alt=''></img>
       <span></span>
-      <img src="./images/noun_delivery_1665162.svg" alt=''></img>
+      <img src="./images/noun_delivery_1665162.svg" onClick={()=>navigate('/payment')} alt=''></img>
 
     </div>
    </div>
@@ -55,11 +54,16 @@ const [promo,setpromo]=useState()
      </td>
       <td >dark</td>
       <td >XL</td>
-      <td >{item.countitem}</td>
+      <td >{item.qiitem}</td>
       <td >${(item.qiitem*90)-0.01}</td>
       <td  onClick={()=>{dispatch(removeitem(item.id))}} >X</td>
     </tr>
-      </>):<h3>no item here</h3>
+      </>):<tr>
+      <td ></td>
+      <td ></td>
+      <td ></td>
+      <td ></td>
+      </tr>
     }
       </tbody>
     </Table>

@@ -14,6 +14,7 @@ import Product from './product/Product';
 import Pay from './product/Pay';
 import store from './data/counterSilce';
 import All_product from './product/All_product';
+import Payment from './product/Payment';
 export const Contextid = createContext();
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path='/forget' element={<Forget/>}/>
         <Route path='/pay' element={<Pay/>}/>
         <Route path='/allproduct' element={<All_product/>}/>
+        <Route path='/payment' element={<Payment/>}/>
 
 
 

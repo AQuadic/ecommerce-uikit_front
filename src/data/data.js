@@ -32,11 +32,13 @@ const counterslice = createSlice({
     },
     recount: (state, action) => {
         state.countts = 1;
+        state.getdata.qiitem=1;
         
       },
     counter: (state, action) => {
       state.countts += action.payload;
-      state.getdata.countitem = state.countts;
+      state.getdata.qiitem = state.countts;
+      console.log( state.getdata.qiitem)
     },
     additem: (state, action) => {
       state.allitem.push({
@@ -53,6 +55,7 @@ const counterslice = createSlice({
       state.getdata.countitem = state.countts;
     },
     pay: (state, action) => {
+      
       state.qitem++;
 
       const id = state.getdata.id;
@@ -64,17 +67,21 @@ const counterslice = createSlice({
         const curentitem = state.itempay.filter(
           (item, index) => item.id === id
         );
-        curentitem[0].qiitem++;
+        
+        curentitem[0].qiitem+= state.getdata.qiitem;
 curentitem[0].countitem =state.countts;
+console.log(curentitem[0].qiitem)
         /*state.countts++;*/
       }
-      state.itempay.reduce(
-        (total, price) => (state.totelprice = total + price)
-      );
+      state.totelprice=state.itempay.reduce(
+        (total, price) => total + price
+      ,0);
       console.log(state.totelprice);
       console.log(state.itempay[0].id);
+      
+      state.qitem = state.itempay.reduce((acc, curr) => acc + curr.qiitem, 0);
       state.totelprice = state.qitem * 90 - 0.01;
-      state.qitem = state.itempay.reduce((acc, curr) => acc + curr.countitem, 0);
+      console.log( state.getdata.qiitem)
     },
 
     removeitem: (state, action) => {

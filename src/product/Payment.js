@@ -1,0 +1,209 @@
+import React, { useState } from "react";
+import { Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+function Payment() {
+  const navigate = useNavigate();
+  const [promo, setpromo] = useState();
+  return (
+    <Container>
+      <div>
+        <div className="shopping">
+          <h2>Shipping and Payment</h2>
+          <div className="shopping-icon">
+            <img src="./images/unactive.svg" onClick={()=>{navigate("/pay")}} alt=""></img>
+            <span></span>
+            <img src="./images/active.svg" alt=""></img>
+          </div>
+        </div>
+        <div className="about-payment">
+          <div className="part1">
+            <div className="log-sin">
+              <button className="log">Log in</button>
+              <button className="sin">SIGN UP</button>
+            </div>
+            <div className="shipping-information">
+              <h2>Shipping information</h2>
+              <div className="forms">
+              <Form>
+              <Form.Group>
+                <Form.Control
+                  id="email"
+                  type="email"
+                  required
+                  placeholder="E-mail"
+                />
+              </Form.Group>
+            <Form.Group>
+                <Form.Control
+                  id="First-Name"
+                  type="text"
+                  required
+                  placeholder="First Name"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  id="Last-Name"
+                  type="text"
+                  required
+                  placeholder="Last Name"
+                />
+              </Form.Group>
+          
+              <Form.Group>
+                <Form.Control
+                  id="Phone-number"
+                  type="number"
+                  required
+                  placeholder="Phone number"
+                />
+              </Form.Group>
+              
+            </Form>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  id="Address"
+                  type="text"
+                  required
+                  placeholder="Address"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  id="City"
+                  type="text"
+                  required
+                  placeholder="City"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  id="Postal Code"
+                  type="text"
+                  required
+                  placeholder="Postal Code / ZIP"
+                />
+              </Form.Group>
+          
+              <Form.Group>
+                <Form.Control
+                  id="Poland"
+                  type="text"
+                  required
+                  placeholder="Poland"
+                />
+              </Form.Group>
+              
+            </Form>
+              </div>
+             
+            </div>
+          </div>
+          <div className="part2">
+            <div className="payment-method">
+              <h2>Payment method</h2>
+<div className="method-img">
+  <img src="./images/Paypal.svg" alt=""></img>
+  <img src="./images/Visa.svg" alt=""></img>
+  <img src="./images/Master card.svg" alt=""></img>
+  <img src="./images/Maestro.svg" alt=""></img>
+
+  <img src="./images/Discover.svg" alt=""></img>
+
+  <img src="./images/iDEAL.svg" alt=""></img>
+
+</div>
+            </div>
+            <div className="delivery-method">
+<h2>Delivery method</h2>
+<div className="method-img">
+<img src="./images/In post.svg" alt=""></img>
+<img src="./images/DPD.svg" alt=""></img>
+
+<img src="./images/DHL.svg" alt=""></img>
+
+<img src="./images/FedEX.svg" alt=""></img>
+
+</div>
+            </div>
+          </div>
+          <div className="part3">
+            <h2>Your cart</h2>
+            <div className="your-cart">
+             <div className="order-about">
+             
+              <img src="./images/Mask Group 8.svg"/>
+              <div className="order-name">
+                <h3>T-Shirt 
+Summer Vibes</h3><p>#261311</p>
+             </div>
+             <h4 className="order-salary">$89.99</h4>
+             </div>
+             <div className="order-about">
+             
+             <img src="./images/Mask Group 8.svg"/>
+             <div className="order-name">
+               <h3>T-Shirt 
+Summer Vibes</h3><p>#261311</p>
+            </div>
+            <h4 className="order-salary">$89.99</h4>
+            </div>
+            <div className="order-about">
+             
+             <img src="./images/Mask Group 8.svg"/>
+             <div className="order-name">
+               <h3>T-Shirt 
+Summer Vibes</h3><p>#261311</p>
+            </div>
+            <h4 className="order-salary">$89.99</h4>
+            </div>
+            <div className="payment-total">
+              <h3>Total cost</h3>
+              <h4>$159,98</h4>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div className=" pay-about">
+          <div className="">
+            <button
+              className="back"
+              onClick={() => {
+                navigate("/pay");
+              }}
+            >
+              <img src="./images/noun_Arrow Left_2682937.svg" alt="" />
+              <h3>Back </h3>
+            </button>
+          </div>
+        <div className="btn-shopping">
+        <div className="">
+            <input
+              type="text"
+              placeholder="Promo Code"
+              onChange={(e) => {
+                setpromo(e.target.value);
+              }}
+            ></input>
+          </div>
+
+          <div className="">
+            <button
+              className="check"
+              onClick={() => {
+                promo ? navigate("/login") : alert("please Enter promo code ");
+              }}
+            >
+              Proceed to payment
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </Container>
+  );
+}
+
+export default Payment;
