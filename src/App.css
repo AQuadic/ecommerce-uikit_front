@@ -150,7 +150,19 @@ a,a:hover {
     .navbar-light .navbar-nav .nav-link {
       color: black;
   }
-  
+  .react-multiple-carousel__arrow {
+    background: rgba(0,0,0,.5);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 40px;
+    min-width: 44px;
+    opacity: 1;
+    outline: 0;
+    position: absolute;
+    transition: all .5s;
+    z-index: 1000;
+}
   
   /*end navbar*/
 
@@ -204,6 +216,13 @@ a,a:hover {
   border-radius: 30px;
   border: none;
   font-size: 13px;
+  transition: 0.5s;
+   
+}
+.div input[type="button"]:hover ,.headselect button:hover {
+ 
+    background-color: #212529;
+    color: white;
 }
 .div .about {
   font-family: Poppins;
@@ -447,17 +466,22 @@ background-position: center;
   font-size: 13px;
   font-family: Poppins;
   border: 1px solid #6a666647;
+  transition: 0.5s;
 }
 .carousel-react .item {
   max-width: 270px;
   margin: 0px 1rem;
   position: relative;
 }
-.carousel-react ul li .item img,.about-product .item img {
+.carousel-react ul li .item img, .about-product .item img {
   width: 100%;
   background-color: #70707033;
   display: block;
-  
+  transition: 0.5s;
+}
+.carousel-react ul li .item img:hover, .about-product .item img:hover{
+  transform: scale(1.03);
+
 }
 .carousel-react .item .about ,.about-product .item .about {
   margin-top: 30px;
@@ -553,8 +577,26 @@ margin-bottom: 40px;
 display: block;
 margin-bottom: 10px;
 color: black;
+position: relative;
 }
-
+.r-footer a:hover{
+  transform: scale(1.01);
+  font-weight: 500;
+}
+.r-footer a::before{
+content: "";
+height: 2px;
+width: 0%;
+position: absolute;
+background-color: #212529;
+top: 100%;
+left: -50%;
+transition: 1s;
+}
+.r-footer a:hover::before{
+width: 100%;
+left: 0;
+}
 .r-footer li p {
 margin-bottom: 10px;
 }
@@ -773,17 +815,21 @@ width: 14px;
       align-items: center;
       text-align: center;
   }
-  .dec .part2 .rat button ,.order .about .numorder .qorder .add ,.check,.about-payment .part1 .log{
+  .dec .part2 .rat button, .order .about .numorder .qorder .add, .check, .about-payment .part1 .log {
     background-color: #FBB03B;
     border: none;
     border-radius: 50px;
     margin: auto;
     margin-top: 45px;
     text-align: center;
+   transition: 0.5s;
 }
-.dec .part2 .rat button:hover{
-  background-color: #f3a01e;
+.dec .part2 .rat button:hover, .order .about .numorder .qorder .add:hover, .check:hover, .about-payment .part1 .log:hover{
+  color: #fb9900;
+  background-color: #d9dcdf;
+  box-shadow: 0px 0px 3px #6c757d9e;
 }
+
 .dec .part2 .man {
   max-width: 570px;
  
@@ -1435,6 +1481,10 @@ font-size: 16px;
 td.fristtd .about p ,.about-payment .part3 .your-cart .order-about .order-name p{
   font-size: 12px;
   color: #C4C4C4;
+}
+tbody tr td:last-child:hover{
+ color: red;
+font-weight: 500;
 }
 /*end table */
 .fillter{
