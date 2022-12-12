@@ -7,11 +7,14 @@ import AllImage from "./AllImage";
 import Owlpage from "./Owlpage";
 
 
+
+
 function Home(props) {
   
   return (
     <>  
     <Owlpage we={props.we}/>
+
 <div className="div">
   <div className="container">
     <div className="one">

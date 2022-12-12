@@ -2,34 +2,34 @@ import React, { useRef, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
-
+import Slider from "react-slick";
+import Shap from "./Shap";
 
 
 
 function Owlpage(props) {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
+  const settings = {
+    dots: false,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
+    prevArrow:  <img  src='./images/noun_Arrow Left_2682938.svg' alt=""/>
   };
+
  
     const we = props.we
    
    
   return (
     <>
+    <div className="imagepage">
      <div className="owlnav">
      <img className="gray" src='./images/beautiful-clothing-fashion-2498791.svg' alt=""/>
        {
-        we>560?<> <Carousel
-        responsive={responsive}
-        className="carousel-react"
-        itemClass="carousel-item-padding-100-px"
-      >
-         
+        we>560?<>  <Slider {...settings}>
         <div className="imgpage">
           <img
             id="ground"
@@ -40,45 +40,42 @@ function Owlpage(props) {
         <div className="imgpage">
           <img
             id="ground"
-            src='./images/joao-silas-SfkLX6fUObk-unsplash.svg'
+            src='./images/beautiful-beauty-casual-2829173.svg'
             alt="t-shert"
           />
         </div>
         <div className="imgpage">
           <img
             id="ground"
-            src='./images/joao-silas-SfkLX6fUObk-unsplash.svg'
+            src='./images/beautiful-beauty-casual-2830170.svg'
             alt="t-shert"
           />
         </div>
-      </Carousel> </>:<> <Carousel
-          responsive={responsive}
-          className="carousel-react"
-          itemClass="carousel-item-padding-100-px"
-        >
-           
-          <div className="imgpage">
-            <img
-              id="ground"
+          
+        </Slider> </>:<> <Slider {...settings}>
+        <div className="imgpage">
+          <img
+            id="ground"
+            src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
+            alt="t-shert"
+          />
+        </div>
+        <div className="imgpage">
+          <img
+            id="ground"
+           src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
+            alt="t-shert"
+          />
+        </div>
+        <div className="imgpage">
+          <img
+            id="ground"
               src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-              alt="t-shert"
-            />
-          </div>
-          <div className="imgpage">
-            <img
-              id="ground"
-              src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-              alt="t-shert"
-            />
-          </div>
-          <div className="imgpage">
-            <img
-              id="ground"
-              src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-              alt="t-shert"
-            />
-          </div>
-        </Carousel> </>
+            alt="t-shert"
+          />
+        </div>
+          
+        </Slider> </>
        }
         <div className="about">
             <h2>Sale of the <br/>
@@ -94,8 +91,10 @@ collection</h2>
 
             
         </div>
+      
         </div>
-   
+        <Shap/>
+        </div>
     </>
   );
 }
