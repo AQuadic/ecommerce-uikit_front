@@ -15,6 +15,9 @@ function Owlpage(props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
     nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
     prevArrow:  <img  src='./images/noun_Arrow Left_2682938.svg' alt=""/>
   };
@@ -47,7 +50,7 @@ function Owlpage(props) {
         <div className="imgpage">
           <img
             id="ground"
-            src='./images/beautiful-beauty-casual-2830170.svg'
+            src='./images/joao-silas-SfkLX6fUObk-unsplash.svg'
             alt="t-shert"
           />
         </div>
