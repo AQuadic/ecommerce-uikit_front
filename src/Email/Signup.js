@@ -24,7 +24,7 @@ function Signup() {
         password,
         password_confirmation
       );
-    const po =  axios.post("https://freshfarm.aquadic.com/api/v1/users/auth/signup",{
+    const po =  axios.post("https://v2.freshfarm.ae//api/v1/users/auth/signup",{
       'name':name,
       'email':email,
      
