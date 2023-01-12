@@ -24,7 +24,7 @@ function Signup() {
         password,
         password_confirmation
       );
-    const po =  axios.post("https://v2.freshfarm.ae//api/v1/users/auth/signup",{
+    const po =  axios.post("https://v2.freshfarm.ae/api/v1/users/auth/signup",{
       'name':name,
       'email':email,
      
@@ -135,8 +135,8 @@ and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
 
               <Button className="w-100  btn-log" type="submit" onClick={(e)=>{
                 e.preventDefault()
-                  console.log(email , password , password_confirmation,phone,phone_country);
-                 if (email && password && password_confirmation&&phone&&phone_country) {
+                  console.log(email , password , password_confirmation,phone_country);
+                 if (email && password && password_confirmation&&phone_country) {
                  console.log("tes")
                  
                   if (password !== password_confirmation) {

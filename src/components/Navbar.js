@@ -13,7 +13,7 @@ function Navbar2() {
   const [auth,setauth]=useState(state_user?localStorage.getItem("token"):0)
   const out =()=>{
     setstate_user(false)
-    const acountout= axios.post("https://v2.freshfarm.ae//api/v1/users/auth/logout",{
+    const acountout= axios.post("https://v2.freshfarm.ae/api/v1/users/auth/logout",{
       'from_all':true
     },{
       headers :{

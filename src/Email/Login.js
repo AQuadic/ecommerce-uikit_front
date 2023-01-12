@@ -19,7 +19,7 @@ localStorage.setItem("state",false);
       email,
       password,
     );
-  const po =  axios.post("https://v2.freshfarm.ae//api/v1/users/auth/login",{
+  const po =  axios.post("https://v2.freshfarm.ae/api/v1/users/auth/login",{
     'email':email,
     'password':password,
   },
