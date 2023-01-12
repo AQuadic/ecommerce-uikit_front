@@ -90,7 +90,7 @@ function Navbar2() {
              
               {state_user?<li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
       <img  src='./images/exit.png' alt=""  />
-    </li>:<li onClick={()=>{navegate('/product') }}>
+    </li>:<li onClick={()=>{navegate('/login') }}>
       <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
     </li>}
              
