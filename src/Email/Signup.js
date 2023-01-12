@@ -8,7 +8,7 @@ function Signup() {
     const [loading, setloading] = useState(false);
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
-    const [phone, setphone] = useState("545464557");
+    const [phone, setphone] = useState("");
     const [phone_country, setv] = useState("AE");
 
     const [password, setpassword] = useState("");
@@ -19,7 +19,7 @@ function Signup() {
       console.warn(
         name,
         email,
-        phone,
+      
         phone_country,
         password,
         password_confirmation
@@ -27,7 +27,7 @@ function Signup() {
     const po =  axios.post("https://freshfarm.aquadic.com/api/v1/users/auth/signup",{
       'name':name,
       'email':email,
-      'phone':phone,
+     
       'phone_country':phone_country,
       'password':password,
       'password_confirmation':password_confirmation
