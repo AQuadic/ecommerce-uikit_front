@@ -111,6 +111,9 @@ a,a:hover {
   ul.nav-icon li{
     position: relative;
   }
+  ul.nav-icon li img{
+   width: 22px;
+  }
   ul.nav-icon li p {
     position: absolute;
     top: -14px;

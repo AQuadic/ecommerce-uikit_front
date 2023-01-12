@@ -1,9 +1,63 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
     const navegate = useNavigate();
+    const [loading, setloading] = useState(false);
+    const [name, setname] = useState("");
+    const [email, setemail] = useState("");
+    const [phone, setphone] = useState("545464557");
+    const [phone_country, setv] = useState("AE");
+
+    const [password, setpassword] = useState("");
+    const [password_confirmation, setpassword_confirmation] =
+      useState("");
+      const [error, seterror] = useState("");
+    const sin =  () => {
+      console.warn(
+        name,
+        email,
+        phone,
+        phone_country,
+        password,
+        password_confirmation
+      );
+    const po =  axios.post("https://freshfarm.aquadic.com/api/v1/users/auth/signup",{
+      'name':name,
+      'email':email,
+      'phone':phone,
+      'phone_country':phone_country,
+      'password':password,
+      'password_confirmation':password_confirmation
+    },
+   {
+    headers :{
+      'Content-Type':'application/json',
+      'Accept':' application/json',
+      'Accept-Language':'ar'
+  
+       }
+   }
+      
+    ).then((res)=>{console.log(res);
+    if(res.data){
+      localStorage.setItem("user",JSON.stringify(res.data.user));
+      localStorage.setItem("token",JSON.stringify(res.data.token));
+      navegate('/');
+  
+    }
+    
+    
+    }).catch((error)=>{
+      console.log(error.response.data.message);
+      alert(error.response.data.message)
+      seterror(error.response.data.message)
+    });
+  
+    console.log(po)
+    }
   return (
    
     <Container>
@@ -29,6 +83,8 @@ and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
                   type="text"
                   required
                   placeholder="First Name"
+
+                   onChange={(e)=>setname(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
@@ -45,6 +101,7 @@ and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
                   type="email"
                   required
                   placeholder="E-mail"
+                   onChange={(e)=>setemail(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
@@ -53,6 +110,16 @@ and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
                   type="password"
                   required
                   placeholder="Password"
+                   onChange={(e)=>setpassword(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  id="password confirmation"
+                  type="password"
+                  required
+                  placeholder="password confirmation"
+                   onChange={(e)=>{setpassword_confirmation(e.target.value); }}
                 />
               </Form.Group>
               <div className="w-100 forget-pass  mt-3">
@@ -66,7 +133,30 @@ and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
               </div>
              
 
-              <Button className="w-100  btn-log" type="submit">
+              <Button className="w-100  btn-log" type="submit" onClick={(e)=>{
+                e.preventDefault()
+                  console.log(email , password , password_confirmation,phone,phone_country);
+                 if (email && password && password_confirmation&&phone&&phone_country) {
+                 console.log("tes")
+                 
+                  if (password !== password_confirmation) {
+                    console.log("yaa")
+                    seterror("pleace password congirmed not matched");
+                    console.warn(error)
+                    
+                  } else {
+                 console.log("yaa")
+                    sin();
+                  }
+                }
+                else{
+                  seterror("pleace Enter All information about you")
+                  console.warn(error)
+                }
+               
+              }}
+              
+              >
               Sign in
               </Button>
             </Form>

@@ -1,4 +1,6 @@
-import React from 'react';
+import { faL } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -6,6 +8,49 @@ import { Link, useNavigate } from 'react-router-dom';
 function Navbar2() {
   const navegate = useNavigate()
   const qi = useSelector((state)=>state.counter.qitem)
+ 
+  const[state_user,setstate_user]= useState(localStorage.getItem("state"))
+  const [auth,setauth]=useState(state_user?localStorage.getItem("token"):0)
+  const out =()=>{
+    setstate_user(false)
+    const acountout= axios.post("https://freshfarm.aquadic.com/api/v1/users/auth/logout",{
+      'from_all':true
+    },{
+      headers :{
+        'Authorization':`Bearer ${auth}  `,
+        'Content-Type':"application/json",
+        'Accept':' application/json',
+        'Accept-Language':'ar'
+    
+         }
+    }).then((res)=>{console.log(res)}).catch((error)=>{console.log(error)});
+    console.log(acountout)
+    localStorage.clear()
+    navegate("/login");
+   }
+   const icon_nav = ()=>{
+    console.log(state_user)
+    if(state_user){
+      return( <li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
+      <img  src='./images/exit.png' alt=""  />
+    </li>)
+    }
+    else{
+      return( <li onClick={()=>{navegate('/product') }}>
+      <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
+    </li>)
+    }
+  }
+  icon_nav();
+   useEffect(()=>{
+  console.log("change state")
+    setauth(state_user?localStorage.getItem("token"):0)
+   },[state_user])
+
+
+ 
+
+
   return (
    <>
   
@@ -42,9 +87,14 @@ function Navbar2() {
                 <img onClick={()=>navegate('/allproduct')} src='./images/noun_cart_2102832 (4).svg' alt=""  />
                 <p onClick={()=>navegate('/pay')}>{qi}</p>
               </li>
-              <li onClick={()=>{navegate('/login')}}>
-                <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
-              </li>
+             
+              {state_user?<li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
+      <img  src='./images/exit.png' alt=""  />
+    </li>:<li onClick={()=>{navegate('/product') }}>
+      <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
+    </li>}
+             
+              
             </ul>
           </div>
          
