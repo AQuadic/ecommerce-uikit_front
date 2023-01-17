@@ -21,16 +21,7 @@ function App() {
   const filter = (id)=>{
     console.log(id)
   }
-  const [we ,setwe]=useState("")
   const navref =useRef()
-  useEffect(()=>{
-    setwe(navref.current.clientWidth)
-  },[])
-  window.onresize=()=>{
-    
-          setwe(navref.current.clientWidth)
-    
-  }
  
   return (
   <Provider store={store}>
@@ -40,8 +31,8 @@ function App() {
     
      <Navbar2/>
       <Routes>
-        <Route path='/'  element={<Home  we={we} />}/>
-        <Route path='/product' element={<Product we={we}/>}/>
+        <Route path='/'  element={<Home   />}/>
+        <Route path='/product' element={<Product />}/>
         <Route path='/login' element={<Login filter={filter}/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/forget' element={<Forget/>}/>

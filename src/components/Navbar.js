@@ -6,11 +6,14 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 function Navbar2() {
+  const [data , setdata]=useState("")
+  const [catigory , setdata2]=useState("")
   const navegate = useNavigate()
   const qi = useSelector((state)=>state.counter.qitem)
  
   const[state_user,setstate_user]= useState(localStorage.getItem("state"))
   const [auth,setauth]=useState(state_user?localStorage.getItem("token"):0)
+
   const out =()=>{
     setstate_user(false)
     const acountout= axios.post("https://v2.freshfarm.ae/api/v1/users/auth/logout",{
@@ -49,8 +52,32 @@ function Navbar2() {
 
 
  
+   useEffect(()=>{
+    const handelcat =()=>{
+      axios.get("https://v2.freshfarm.ae/api/v1/meta/data",{
+    headers:{
+      "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Accept-Language": "ar",
+    }
+    }).then((res)=>{console.log(res.data);setdata2(res.data.categories)}).catch((err)=>{console.log(err)}) 
+    }
+    handelcat()
+  },[])
+useEffect(()=>{
+  const handelcat =()=>{
+    axios.get("https://v2.freshfarm.ae/api/v1/meta/data",{
+  headers:{
+    "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Accept-Language": "ar",
+  }
+  }).then((res)=>{console.log(res.data);setdata(res.data)}).catch((err)=>{console.log(err)}) 
+  }
+  handelcat()
+},[])
 
-
+console.log(catigory)
   return (
    <>
   
@@ -68,7 +95,7 @@ function Navbar2() {
         
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+               {/* <li className="nav-item active">
                 <Link className="nav-link" to="#">Men </Link>
               </li>
               <li className="nav-item">
@@ -76,7 +103,19 @@ function Navbar2() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">Kids</Link>
+              </li>  */}
+              { catigory?
+                catigory.slice(0,3).map((data)=>{
+                  return(
+                    <li className="nav-item" key={data.id}>
+                      <Link className="nav-link" to="#">{data.name.ar} </Link>
+                    </li>
+                  )
+                }):<li className="nav-item active" >
+                <Link className="nav-link" to="#">Men </Link>
               </li>
+                
+              } 
             </ul>
             
             <ul className="nav-icon">

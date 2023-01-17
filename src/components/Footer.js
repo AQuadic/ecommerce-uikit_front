@@ -1,7 +1,21 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Footer() {
+  const [socials , setdata]=useState("")
+  useEffect(()=>{
+    const handelcat =()=>{
+      axios.get("https://v2.freshfarm.ae/api/v1/meta/data",{
+    headers:{
+      "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Accept-Language": "ar",
+    }
+    }).then((res)=>{console.log(res.data);setdata(res.data)}).catch((err)=>{console.log(err)}) 
+    }
+    handelcat()
+  },[])
   return (
    <>
  
@@ -21,15 +35,15 @@ everyone in between – but most importantly, for the fashionable</h4>
    </li>
    <li>
     <p className="footer-links">
-      <Link href="#" className="link-1"><img src="./images/002-facebook-logo.svg" alt=""/></Link>
+      <a href={socials.facebook} className="link-1"><img src="./images/002-facebook-logo.svg" alt=""/></a>
       
-      <Link href="#"><img src="./images/001-twitter-logo-silhouette.svg" alt=""/></Link>
+      <a href={socials.twitter}><img src="./images/001-twitter-logo-silhouette.svg" alt=""/></a>
     
-      <Link href="#"><img src="./images/004-linkedin-logo.svg" alt=""/></Link>
+   
     
-      <Link href="#"><img src="./images/instagram (1).svg" alt=""/></Link>
+      <a href={socials.instagram}><img src="./images/instagram (1).svg" alt=""/></a>
       
-      <Link href="#"><img src="./images/005-youtube.svg" alt=""/></Link>
+      <a href={socials.youtube}><img src="./images/005-youtube.svg" alt=""/></a>
     </p>
    </li>
           </ul>  

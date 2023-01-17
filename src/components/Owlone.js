@@ -1,45 +1,80 @@
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
-
+import Slider from "react-slick";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 function Owlone() {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-      slidesToSlide: 3,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1030 },
-      items: 4,
-      partialVisibilityGutter: 30,
-    },
-    tablet: {
-      breakpoint: { max: 1030, min: 768 },
-      items: 3,
-      partialVisibilityGutter: 30,
-    },
-    tablett: {
-      breakpoint: { max: 768, min: 530 },
-      items: 2.5,
-      partialVisibilityGutter: 30,
-    },
-    tablettx: {
-      breakpoint: { max: 530, min: 420 },
-      items: 2,
-      partialVisibilityGutter: 30,
-    },
-    mobile: {
-      breakpoint: { max: 420, min: 0 },
-      items: 1,
-      partialVisibilityGutter: 30,
-    },
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const ref = useRef()
+  var settings = {
+    dots: false,
+    infinite: false,
+ 
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    initialSlide: 0,
+   nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
+  prevArrow:  <img  src='./images/noun_Arrow Left1_2682937.svg' alt=""/>,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        
+          dots: true
+        }
+      }, {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+      
+         
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1.8,
+          slidesToScroll: 1,
+          
+        }
+      },
+      {
+        breakpoint: 420,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          
+        }
+      }
+    ]
   };
+const [products ,setproducts]= useState()
+
+
+useEffect(()=>{
+  const handelcat =()=>{
+    axios.get("https://v2.freshfarm.ae/api/v1/users/products",{
+  headers:{
+    "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Accept-Language": "ar",
+  }
+  }).then((res)=>{console.log(res.data);setproducts(res.data.data)}).catch((err)=>{console.log(err)}) 
+  }
+  handelcat()
+  
+ 
+},[])
+  
   const dispatch = useDispatch();
   const [how, sethow] = useState("");
   const navigate = useNavigate();
@@ -53,7 +88,7 @@ function Owlone() {
   const { owl, idowl, sendata } = counteraction;
   return (
     <>
-      <Container>
+      <Container className="product">
         <div className="headselect">
           <h2>Selected just for you</h2>
           <button
@@ -65,12 +100,48 @@ function Owlone() {
             Show more
           </button>
         </div>
-        <Carousel
-          responsive={responsive}
-          className="carousel-react"
-          itemClass="carousel-item-padding-100-px"
-        >
-          <div className="item">
+
+        <Slider  {...settings }  beforeChange={(currentSlide, nextSlide) => {
+              setCurrentIndex(nextSlide);
+          }}>
+        {
+            products? products.map((product)=>{
+              return(
+               
+                  <div className="item" key={product.id}>
+            <img
+              id={product.id}
+              src={product.image.url}
+              alt="t-shert"
+              onClick={(e) => {
+                setgetitem({ id: e.target.id, imgurl: e.target.src });
+                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
+
+                window.scrollTo(100, 100);
+                sethow(e.target.id);
+                dispatch(owl(e.target.src));
+                dispatch(idowl(e.target.id));
+                navigate("/product");
+              }}
+            />
+          
+            
+            <div className="about">
+            <p>{product.name.ar}</p>
+              <span>${product.price}</span>
+            </div>
+          </div>
+               
+              )
+            }) :null
+          }
+          </Slider>
+
+
+
+       
+         
+         {/* <div className="item">
             <img
               id="ahmed"
               src="./images/stock-photo-conf.svg"
@@ -154,8 +225,8 @@ function Owlone() {
               <p>Loose Textured T-Shirt</p>
               <span>$119.99</span>
             </div>
-          </div>
-        </Carousel>
+          </div>  */}
+      
       </Container>
     </>
   );

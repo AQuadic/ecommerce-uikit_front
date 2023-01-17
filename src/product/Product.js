@@ -7,14 +7,14 @@ import TsSummer from '../components/TsSummer'
 import Dec from './Dec'
 import Nav2 from './Nav2'
 
-function Product(props) {
-  const we = props.we; 
+function Product() {
+  
   return (
    <>
  
 
   
-   <Nav2 we={we}/>
+   <Nav2 />
    <TsSummer/>
    <Dec/>
    <Owlone/>

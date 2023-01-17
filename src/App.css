@@ -1192,6 +1192,11 @@ background-color: black;
     gap: 50px;
     flex-wrap: wrap;
 }
+@media(max-width:580px){
+  .nav2 .delevery{
+    display: none;
+  }
+}
 .nav2 .part1 ,.nav2 .part2 {
   display: flex;
   align-items: center;
@@ -1395,6 +1400,7 @@ font-weight: bold;
 line-height: 80px;
 margin-bottom: 50px;
 color: white;
+text-shadow: 0px 0px 36px black;
 }
 .owlnav .about a{
 display: flex;
@@ -1418,7 +1424,7 @@ color: white;
 font-weight: 600;
 margin: 0;
 }
-.slick-next,.slick-prev  {
+.imagepage .slick-next,.imagepage .slick-prev  {
   z-index: 52;
   top: 80%;
   width: 70px;
@@ -1427,17 +1433,23 @@ margin: 0;
    
     background: #ffffff96;
 }
-.slick-next {
+.imagepage .slick-next {
   right: calc(0% - -56px);
 }
-.slick-prev {
+.imagepage .slick-prev {
   left: calc(100% - 222px);
 }
-.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+.imagepage .slick-prev:hover, .imagepage .slick-prev:focus, .imagepage .slick-next:hover, .imagepage .slick-next:focus {
   color: #ffffff00;
   outline: none;
   opacity: 0.5;
   background: #ffffff96 ;
+}
+.imagepage .slick-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  max-height: 800px;
 }
 @media(max-width:900px){
   .owlnav .about h2 {
@@ -1460,16 +1472,16 @@ margin: 0;
   }
 }
 @media(max-width:430px){
-  .slick-next, .slick-prev {
+  .imagepage .slick-next, .imagepage .slick-prev {
     top: 88%;
     width: 50px;
     height: 50px;
     padding: 18px 12px; 
 }
-.slick-prev {
+.imagepage .slick-prev {
   left: calc(100% - 136px);   
 }
-.slick-next {
+.imagepage .slick-next {
   right: calc(0% - -20px);
 }
 }
@@ -2035,3 +2047,37 @@ font-weight: 300;
 }
 }
  /*end payment */
+/*product */
+.product .slick-slide img {
+  display: block;
+  width: 100%;
+ height: 250px;
+  object-fit: cover;
+}
+.product .slick-prev, .product .slick-next{
+
+}
+.product .item {
+  padding: 0px 10px;
+}
+.product .item .about{
+  margin-top: 22px;
+}
+.product .item .about p{
+  margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+@media(max-width:420px){
+  .product .slick-slide img {
+
+   height: 300px;
+    
+  }
+  
+}
+@media(max-width:600px){
+  .product .slick-prev, .product .slick-next{
+    display: none !important;
+      }
+}

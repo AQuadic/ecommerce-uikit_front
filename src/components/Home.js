@@ -2,18 +2,18 @@ import React from "react";
 
 import Footer from "./Footer";
 import Owlone from "./Owlone";
-import { Link } from "react-router-dom";
+
 import AllImage from "./AllImage";
 import Owlpage from "./Owlpage";
 
 
 
 
-function Home(props) {
+function Home() {
   
   return (
     <>  
-    <Owlpage we={props.we}/>
+    <Owlpage />
 
 <div className="div">
   <div className="container">

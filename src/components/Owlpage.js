@@ -1,85 +1,77 @@
-import React, { useRef, useState } from "react";
-import Carousel from "react-multi-carousel";
+import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
+
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import Shap from "./Shap";
 
 
 
-function Owlpage(props) {
+function Owlpage() {
+  const navigate = useNavigate()
+  const [banners ,setbanners] =useState()
   const settings = {
     dots: false,
     fade: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
-    prevArrow:  <img  src='./images/noun_Arrow Left_2682938.svg' alt=""/>
+    speed: 700,
+    autoplaySpeed: 1500,
+  nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
+   prevArrow:  <img  src='./images/noun_Arrow Left_2682938.svg' alt=""/>
   };
 
  
-    const we = props.we
+    
    
-   
+    useEffect(()=>{
+      const handelcat =()=>{
+        axios.get("https://v2.freshfarm.ae/api/v1/meta/data",{
+      headers:{
+        "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Accept-Language": "ar",
+      }
+      }).then((res)=>{console.log(res.data);setbanners(res.data.banners)}).catch((err)=>{console.log(err)}) 
+      }
+      handelcat()
+    },[])
   return (
     <>
     <div className="imagepage">
      <div className="owlnav">
-     <img className="gray" src='./images/beautiful-clothing-fashion-2498791.svg' alt=""/>
-       {
-        we>560?<>  <Slider {...settings}>
-        <div className="imgpage">
-          <img
-            id="ground"
-            src='./images/joao-silas-SfkLX6fUObk-unsplash.svg'
-            alt="t-shert"
-          />
-        </div>
-        <div className="imgpage">
-          <img
-            id="ground"
-            src='./images/beautiful-beauty-casual-2829173.svg'
-            alt="t-shert"
-          />
-        </div>
-        <div className="imgpage">
-          <img
-            id="ground"
-            src='./images/joao-silas-SfkLX6fUObk-unsplash.svg'
-            alt="t-shert"
-          />
-        </div>
+     {/* <img className="gray" src='./images/beautiful-clothing-fashion-2498791.svg' alt=""/> */}
+       
+         <Slider {...settings}>
+          {
+banners? banners.map((banner)=>{
+  return(
+    <a href={banner.click_action.ar} className="imgpage">
+          <img 
+            id={banner.id}
+            src={banner.image.url}
+            alt="banner" 
           
-        </Slider> </>:<> <Slider {...settings}>
-        <div className="imgpage">
-          <img
-            id="ground"
-            src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-            alt="t-shert"
           />
-        </div>
-        <div className="imgpage">
-          <img
-            id="ground"
-           src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-            alt="t-shert"
-          />
-        </div>
-        <div className="imgpage">
-          <img
-            id="ground"
-              src='./images/joao-silas-SfkLX6fUObk-unsplash2.svg'
-            alt="t-shert"
-          />
-        </div>
+        </a>
+  )
+})
+
+    :  <div className="imgpage">
+    <img
+      id="ground"
+      src='./images/img_page_nav.jpg'
+      alt="t-shert"
+    />
+  </div>
+  }
           
-        </Slider> </>
-       }
+        
+          
+        </Slider> 
         <div className="about">
             <h2>Sale of the <br/>
 summer <br/>

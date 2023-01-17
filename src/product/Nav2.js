@@ -1,8 +1,8 @@
 import React, {  useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function Nav2(props) {
-    const we =props.we;
+function Nav2() {
+  
  
   return (
   <>
@@ -18,8 +18,8 @@ function Nav2(props) {
         </ol>
       </nav>
   </div>
-{
-    we > 573 ? <div className="delevery">
+
+    <div className="delevery">
     <div className="part1">
       <img src="./images/noun_delivery_2057282.svg" alt=""/>
       <div className="about">
@@ -35,8 +35,8 @@ function Nav2(props) {
         <p>$35,00 available</p>
       </div>
     </div>
-  </div>:null
-}
+  </div>
+
 
   </div>
 </div>
