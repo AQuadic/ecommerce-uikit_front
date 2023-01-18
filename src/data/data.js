@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const init = {
+  target_product:"aliiiiiiiiiiiiiiiii",
+  category_id:10,
   value: 1,
   id: "",
   name: "ahmed",
@@ -20,6 +22,13 @@ const counterslice = createSlice({
   name: "counter",
   initialState: init,
   reducers: {
+    send_data: (state, action) => {
+    state.target_product=action.payload
+    },
+    category_id: (state, action) => {
+      state.category_id=action.payload
+      },
+    
     inc: (state) => {
       state.value -= 1;
     },

@@ -2081,3 +2081,26 @@ font-weight: 300;
     display: none !important;
       }
 }
+.slick-slider {
+  
+  direction: inherit;
+}
+.slick-slider .slick-track, .slick-slider .slick-list {
+ 
+  direction: initial;
+}
+[dir='rtl'] .slick-slide {
+  float: left;
+}
+[dir='rtl'] .slick-next {
+  right: auto;
+  right: -25px;
+}
+[dir='rtl'] .slick-prev {
+  right: auto;
+  left: -25px;
+}
+.css-wjh20t-MuiPagination-ul {
+ 
+  justify-content: center;
+}

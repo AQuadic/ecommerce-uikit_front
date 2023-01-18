@@ -4,8 +4,8 @@ import Footer from '../components/Footer'
 
 import Owlone from '../components/Owlone'
 import TsSummer from '../components/TsSummer'
-import Dec from './Dec'
-import Nav2 from './Nav2'
+
+
 
 function Product() {
   
@@ -14,9 +14,9 @@ function Product() {
  
 
   
-   <Nav2 />
+  
    <TsSummer/>
-   <Dec/>
+ 
    <Owlone/>
    <AllImage/>
    <Footer/>

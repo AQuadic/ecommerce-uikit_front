@@ -1,31 +1,37 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
+import Dec from "../product/Dec";
 
 
 
 
 function TsSummer() {
+  
   const navegate = useNavigate();
   const srcimage = useSelector((state) => state.counter.id);
   const valname = useSelector((state) => state.counter.name);
   const countTs = useSelector((state) => state.counter.countts);
   /*const allitem = useSelector((state) => state.counter.allitem);*/
   const getdata = useSelector((state) => state.counter.getdata);
-
- const [love ,setlove]=useState(false);
-
+  const [love ,setlove]=useState(false);
   const dispatch = useDispatch();
   const { counter,additem,pay,sendata,recount } = counteraction;
   const [itemget , setitremget]=useState({
     id:valname,
     imgurl :srcimage, 
   });
+  const target_product = useSelector((state) => state.counter.target_product);
+  const category_idd = useSelector((state) => state.counter.category_id);
+  console.log(category_idd)
+console.log(target_product)
   useEffect(()=>{
    dispatch(recount())
+  
   reval()
-  },[])
+  },[category_idd])
  const reval = ()=>{
   setitremget({
     id:valname,
@@ -35,7 +41,41 @@ function TsSummer() {
  }
   return (
     <>
-    
+     <div className="nav2"  >
+  <div className="container">
+    <div className="crump">
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><Link to="/"><img src="./images/noun_Home_2102808.svg" alt=""/></Link></li>
+          <li className="breadcrumb-item"><Link to='/allproduct'>Men`s Tops</Link></li>
+          <li className="breadcrumb-item"><Link to='/allproduct'>T-Shirt</Link></li>
+          <li className="breadcrumb-item active" aria-current="page">{target_product.name.ar}</li>
+        </ol>
+      </nav>
+  </div>
+
+    <div className="delevery">
+    <div className="part1">
+      <img src="./images/noun_delivery_2057282.svg" alt=""/>
+      <div className="about">
+        <h2>Standard shipment 
+        </h2>
+        <p>Free within 3-6 business days</p>
+      </div>
+    </div>
+    <div className="part2">
+      <img src="./images/noun_Fast  Delivery_1212438.svg" alt=""/>
+      <div className="about">
+        <h2>Express delivery</h2>
+        <p>$35,00 available</p>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</div>
+
       <div className="order">
         
         <div className="container">
@@ -60,16 +100,26 @@ function TsSummer() {
           <div className="about">
             <div className="nameorder">
               <div className="productname">
-                <p className="sal">SALE</p>
-                <h1>T-Shirt Summer Vibes</h1>
-                <span className="red">${(countTs*90)-0.10}9</span>
+              {
+              target_product.before_price >0 ?  <p className="sal">SALE</p> :null
+              }
+               
+                <h1>{target_product.name.ar}</h1>
+                {   target_product.before_price >0 ? <>
+                  <span className="red">${(countTs*90)-0.10}9</span>
                 <span className="ops">${(countTs*120)-0.10}9</span>
+                </> :
+                <span className="">${target_product.price}</span>
+                
+
+                }
+             
               </div>
               <div className="productid">
                 <p className="idpro">
                   Product ID:
                   <br />
-                  261311
+                {target_product.category_id}
                 </p>
                 <h4>HOUSE MY BRAND</h4>
               </div>
@@ -86,7 +136,7 @@ function TsSummer() {
             <div className="sizeorder">
               <div className="aboutsize">
                 <h2>Size:</h2>
-                <p>See size table</p>
+                <p>{target_product.weight.ar}</p>
               </div>
               <button>
                 Choose siZE
@@ -130,10 +180,11 @@ function TsSummer() {
                   className="add"
                   onClick={() => {
               
-                    dispatch(sendata({ id: valname ? valname:"ahmed", imgurl: srcimage ? srcimage: "./images/AdobeStock_236655482.svg", countitem:countTs }))
-                    alert("you shwor from this order : " +countTs+ " from " +valname +" by   $"+((countTs*90)-0.10)+"9");
+                    dispatch(sendata({ id: valname ? valname:"ahmed", imgurl: srcimage ? srcimage: "./images/AdobeStock_236655482.svg", countitem:target_product.price }))
+                    alert("you shwor from this order : " +countTs+ " from " +target_product.name.ar +" by   $"+
+                    target_product.price );
                     dispatch(additem());
-                    console.log(getdata)
+                   
                     dispatch(pay())
                     navegate("/pay");
                   }}
@@ -156,6 +207,7 @@ function TsSummer() {
           </div>
         </div>
       </div>
+      <Dec/>
     </>
   );
 }

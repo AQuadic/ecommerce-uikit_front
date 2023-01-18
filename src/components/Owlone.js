@@ -3,14 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 
 import "react-multi-carousel/lib/styles.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Slider from "react-slick";
 
 function Owlone() {
-  
-  const ref = useRef()
+  const category_idd = useSelector((state) => state.counter.category_id);
+  console.log(category_idd)
+  const ref = useRef();
   var settings = {
     dots: false,
     infinite: false,
@@ -19,8 +20,8 @@ function Owlone() {
     slidesToShow: 4,
     slidesToScroll: 2,
     initialSlide: 0,
-   nextArrow:  <img  src='./images/noun_Arrow Left_2682937.svg' alt=""/>,
-  prevArrow:  <img  src='./images/noun_Arrow Left1_2682937.svg' alt=""/>,
+    nextArrow: <img src="./images/noun_Arrow Left_2682937.svg" alt="" />,
+    prevArrow: <img src="./images/noun_Arrow Left1_2682937.svg" alt="" />,
     responsive: [
       {
         breakpoint: 1024,
@@ -28,55 +29,89 @@ function Owlone() {
           slidesToShow: 3,
           slidesToScroll: 2,
           initialSlide: 0,
-        }
-      }, {
+        },
+      },
+      {
         breakpoint: 768,
         settings: {
           slidesToShow: 2.3,
           slidesToScroll: 1,
-      
-         
-        }
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1.8,
           slidesToScroll: 1,
-          
-        }
+        },
       },
       {
         breakpoint: 420,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
-const [products ,setproducts]= useState()
+  const [products, setproducts] = useState();
+  const [products_same, setproducts_same] = useState();
 
+  useEffect(() => {
 
-
-useEffect(()=>{
-  const handelcat =()=>{
-    axios.get("https://v2.freshfarm.ae/api/v1/users/products",{
-  headers:{
-    "Content-Type": "application/json",
-      "Accept": "application/json",
-      "Accept-Language": "ar",
-  }
-  }).then((res)=>{console.log(res.data);setproducts(res.data.data); 
-  }).catch((err)=>{console.log(err)}) 
-  }
-  handelcat()
+    const handelcat = () => {
+      axios
+        .get("https://v2.freshfarm.ae/api/v1/users/products", {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Accept-Language": "ar",
+          },
+        })
+        .then((res) => {
+          console.log(res.data.data);
+          setproducts(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    handelcat();
+    window.location.pathname !== "/product" ? setcheck_id(0) : setcheck_id(category_idd) ;
+    
+      re()
+    
+  }, []);
   
-},[])
+  const [check_id, setcheck_id] = useState(0)
+ console.log(check_id)
+ const re =()=>{
+  const url = new URL(
+    "https://v2.freshfarm.ae/api/v1/users/products"
+);
+  const params = {
+    "category_id": category_idd|"10",
+   
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+    const handelsame =()=>{
+      axios.get(url,{
+    headers:{
+      "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Accept-Language": "ar",
+    }
+    }).then((res)=>{console.log(res.data.data); setproducts_same(res.data.data)
+    }).catch((err)=>{console.log(err)}) 
+    }
+    handelsame()
+}
+
+
 
   const dispatch = useDispatch();
-  const [how, sethow] = useState("");
+
   const navigate = useNavigate();
 
   const [getitem, setgetitem] = useState({
@@ -84,8 +119,7 @@ useEffect(()=>{
     imgurl: "gg",
   });
 
-  useEffect(() => {}, [how]);
-  const { owl, idowl, sendata } = counteraction;
+  const { owl, idowl, sendata, send_data, category_id } = counteraction;
   return (
     <>
       <Container className="product">
@@ -101,70 +135,96 @@ useEffect(()=>{
           </button>
         </div>
 
-      {
-       <Slider  ref={ref}  {...settings }  onInit={()=>{  ref.current? console.log("yes slid"):console.log("noooo slide")}} 
-       >
-     {
-         products? products.map((product)=>{
-           return(
-            
-               <div className="item" key={product.id}>
-         <img
-           id={product.id}
-           src={product.image.url}
-           alt="t-shert"
-           onClick={(e) => {
-             setgetitem({ id: e.target.id, imgurl: e.target.src });
-             dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-   
-             window.scrollTo(100, 100);
-             sethow(e.target.id);
-             dispatch(owl(e.target.src));
-             dispatch(idowl(e.target.id));
-             navigate("/product");
-           }}
-         />
-       
-         
-         <div className="about">
-         <p>{product.name.ar}</p>
-           <span>${product.price}</span>
-         </div>
-       </div>
-            
-           )
-         }) :null
-       }
-       </Slider>
-      }
+        { check_id >0 ?
+          <Slider
+            ref={ref}
+            {...settings}
+            onInit={() => {
+              ref.current
+                ? console.log("yes slid")
+                : console.log("noooo slide");
+            }}
+          >
+            {products_same
+              ? products_same.map((product) => {
+                  return (
+                    <div className="item" key={product.id}>
+                      <img
+                        id={product.id}
+                        src={product.image.url}
+                        alt="t-shert"
+                        onClick={(e) => {
+                          setgetitem({ id: e.target.id, imgurl: e.target.src });
+                          dispatch(
+                            sendata({ id: e.target.id, imgurl: e.target.src })
+                          );
+                          dispatch(send_data(product));
+                          dispatch(category_id(product.category_id));
 
+                          console.log(product);
+                          window.scrollTo(100, 100);
 
+                          dispatch(owl(e.target.src));
+                          dispatch(idowl(e.target.id));
+                          navigate("/product");
+                        }}
+                      />
 
-       
-         
-         {/* <div className="item">
-            <img
-              id="ahmed"
-              src="./images/stock-photo-conf.svg"
-              alt="t-shert"
-              onClick={(e) => {
-                setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
+                      <div className="about">
+                        <p>{product.name.ar}</p>
+                        <span>${product.price}</span>
+                      </div>
+                    </div>
+                  );
+                })
+              : null}
+          </Slider> :
+            <Slider
+            ref={ref}
+            {...settings}
+            onInit={() => {
+              ref.current
+                ? console.log("yes slid")
+                : console.log("noooo slide");
+            }}
+          >
+            {products
+              ? products.map((product) => {
+                  return (
+                    <div className="item" key={product.id}>
+                      <img
+                        id={product.id}
+                        src={product.image.url}
+                        alt="t-shert"
+                        onClick={(e) => {
+                          setgetitem({ id: e.target.id, imgurl: e.target.src });
+                          dispatch(
+                            sendata({ id: e.target.id, imgurl: e.target.src })
+                          );
+                          dispatch(send_data(product));
+                          dispatch(category_id(product.category_id));
 
-                window.scrollTo(100, 100);
-                sethow(e.target.id);
-                dispatch(owl(e.target.src));
-                dispatch(idowl(e.target.id));
-                navigate("/product");
-              }}
-            />
-            <div className="sale">30%</div>
-            <div className="about">
-              <p>T-Shirt Summer Vibes</p>
-              <span className="red">$89.99</span>
-              <span className="ops">$119.99</span>
-            </div>
-          </div>
+                          console.log(product);
+                          window.scrollTo(100, 100);
+
+                          dispatch(owl(e.target.src));
+                          dispatch(idowl(e.target.id));
+                          navigate("/product");
+                        }}
+                      />
+
+                      <div className="about">
+                        <p>{product.name.ar}</p>
+                        <span>${product.price}</span>
+                      </div>
+                    </div>
+                  );
+                })
+              : null}
+          </Slider>
+        }
+
+        {/* 
 
           <div className="item">
             <img
@@ -207,27 +267,7 @@ useEffect(()=>{
               <span>$79.99</span>
             </div>
           </div>
-          <div className="item">
-            <img
-              onClick={(e) => {
-                setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-                window.scrollTo(100, 100);
-                sethow(e.target.id);
-                dispatch(owl(e.target.src));
-                dispatch(idowl(e.target.id));
-                navigate("/product");
-              }}
-              id="farouk"
-              src="./images/AdobeStock_173519034.svg"
-              alt="t-shert"
-            />
-            <div className="about">
-              <p>Loose Textured T-Shirt</p>
-              <span>$119.99</span>
-            </div>
-          </div>  */}
-      
+           */}
       </Container>
     </>
   );

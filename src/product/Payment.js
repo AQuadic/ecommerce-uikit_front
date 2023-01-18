@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +10,7 @@ function Payment() {
   const    itempay = useSelector(state => state.counter.itempay)
   const totalprice = useSelector((state) => state.counter.totelprice);
   console.log(itempay)
+ 
   return (
     <Container>
       <div>
