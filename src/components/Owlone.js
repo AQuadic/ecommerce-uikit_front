@@ -1,20 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
-import Carousel from "react-multi-carousel";
+
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Slider from "react-slick";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+
 function Owlone() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  
   const ref = useRef()
   var settings = {
     dots: false,
     infinite: false,
- 
+    lazyLoad: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
@@ -27,8 +27,7 @@ function Owlone() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 2,
-        
-          dots: true
+          initialSlide: 0,
         }
       }, {
         breakpoint: 768,
@@ -60,6 +59,7 @@ function Owlone() {
 const [products ,setproducts]= useState()
 
 
+
 useEffect(()=>{
   const handelcat =()=>{
     axios.get("https://v2.freshfarm.ae/api/v1/users/products",{
@@ -68,13 +68,13 @@ useEffect(()=>{
       "Accept": "application/json",
       "Accept-Language": "ar",
   }
-  }).then((res)=>{console.log(res.data);setproducts(res.data.data)}).catch((err)=>{console.log(err)}) 
+  }).then((res)=>{console.log(res.data);setproducts(res.data.data); 
+  }).catch((err)=>{console.log(err)}) 
   }
   handelcat()
   
- 
 },[])
-  
+
   const dispatch = useDispatch();
   const [how, sethow] = useState("");
   const navigate = useNavigate();
@@ -101,41 +101,42 @@ useEffect(()=>{
           </button>
         </div>
 
-        <Slider  {...settings }  beforeChange={(currentSlide, nextSlide) => {
-              setCurrentIndex(nextSlide);
-          }}>
-        {
-            products? products.map((product)=>{
-              return(
-               
-                  <div className="item" key={product.id}>
-            <img
-              id={product.id}
-              src={product.image.url}
-              alt="t-shert"
-              onClick={(e) => {
-                setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-
-                window.scrollTo(100, 100);
-                sethow(e.target.id);
-                dispatch(owl(e.target.src));
-                dispatch(idowl(e.target.id));
-                navigate("/product");
-              }}
-            />
-          
+      {
+       <Slider  ref={ref}  {...settings }  onInit={()=>{  ref.current? console.log("yes slid"):console.log("noooo slide")}} 
+       >
+     {
+         products? products.map((product)=>{
+           return(
             
-            <div className="about">
-            <p>{product.name.ar}</p>
-              <span>${product.price}</span>
-            </div>
-          </div>
-               
-              )
-            }) :null
-          }
-          </Slider>
+               <div className="item" key={product.id}>
+         <img
+           id={product.id}
+           src={product.image.url}
+           alt="t-shert"
+           onClick={(e) => {
+             setgetitem({ id: e.target.id, imgurl: e.target.src });
+             dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
+   
+             window.scrollTo(100, 100);
+             sethow(e.target.id);
+             dispatch(owl(e.target.src));
+             dispatch(idowl(e.target.id));
+             navigate("/product");
+           }}
+         />
+       
+         
+         <div className="about">
+         <p>{product.name.ar}</p>
+           <span>${product.price}</span>
+         </div>
+       </div>
+            
+           )
+         }) :null
+       }
+       </Slider>
+      }
 
 
 
