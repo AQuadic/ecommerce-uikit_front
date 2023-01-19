@@ -1,15 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 
 import "react-multi-carousel/lib/styles.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Slider from "react-slick";
 import Shap from "./Shap";
 
 
 
 function Owlpage() {
-  const navigate = useNavigate()
+  
   const [banners ,setbanners] =useState()
   const settings = {
     dots: false,

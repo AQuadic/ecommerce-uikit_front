@@ -1,12 +1,12 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import { Container, Form } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Payment() {
   const navigate = useNavigate();
-  const [promo, setpromo] = useState();
+
   const    itempay = useSelector(state => state.counter.itempay)
   const totalprice = useSelector((state) => state.counter.totelprice);
   console.log(itempay)
@@ -143,7 +143,7 @@ function Payment() {
                   return(
                     <div key={Math.random()} className="order-about">
              
-                    <img src={item.imgurl}/>
+                    <img src={item.imgurl} alt="" />
                     <div className="order-name">
                       <h3>{item.qiitem} _ {item.id}</h3>
                       <p>#261311</p>
@@ -160,7 +160,7 @@ function Payment() {
             </div>
             </div>
             <div className="price-dlivery">
-              <img src="./images/noun_delivery_2057282.svg" />
+              <img src="./images/noun_delivery_2057282.svg" alt=""/>
               <p>You are <span>$30,02</span> away
 from free shipping!</p>
             </div>

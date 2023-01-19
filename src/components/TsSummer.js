@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,16 +6,18 @@ import { counteraction } from "../data/data";
 import Dec from "../product/Dec";
 
 
+import { useTranslation } from 'react-i18next';
 
 
 function TsSummer() {
-  
+const { t, i18n } = useTranslation();
+ 
   const navegate = useNavigate();
   const srcimage = useSelector((state) => state.counter.id);
   const valname = useSelector((state) => state.counter.name);
   const countTs = useSelector((state) => state.counter.countts);
   /*const allitem = useSelector((state) => state.counter.allitem);*/
-  const getdata = useSelector((state) => state.counter.getdata);
+  //const getdata = useSelector((state) => state.counter.getdata);
   const [love ,setlove]=useState(false);
   const dispatch = useDispatch();
   const { counter,additem,pay,sendata,recount } = counteraction;
@@ -49,7 +51,7 @@ console.log(target_product)
           <li className="breadcrumb-item"><Link to="/"><img src="./images/noun_Home_2102808.svg" alt=""/></Link></li>
           <li className="breadcrumb-item"><Link to='/allproduct'>Men`s Tops</Link></li>
           <li className="breadcrumb-item"><Link to='/allproduct'>T-Shirt</Link></li>
-          <li className="breadcrumb-item active" aria-current="page">{target_product.name.ar}</li>
+          <li className="breadcrumb-item active" aria-current="page">{target_product.name[ i18n.language]}</li>
         </ol>
       </nav>
   </div>
@@ -104,7 +106,7 @@ console.log(target_product)
               target_product.before_price >0 ?  <p className="sal">SALE</p> :null
               }
                
-                <h1>{target_product.name.ar}</h1>
+                <h1>{target_product.name[ i18n.language]}</h1>
                 {   target_product.before_price >0 ? <>
                   <span className="red">${(countTs*90)-0.10}9</span>
                 <span className="ops">${(countTs*120)-0.10}9</span>
@@ -136,7 +138,7 @@ console.log(target_product)
             <div className="sizeorder">
               <div className="aboutsize">
                 <h2>Size:</h2>
-                <p>{target_product.weight.ar}</p>
+                <p>{target_product.weight[ i18n.language]}</p>
               </div>
               <button>
                 Choose siZE
@@ -181,7 +183,7 @@ console.log(target_product)
                   onClick={() => {
               
                     dispatch(sendata({ id: valname ? valname:"ahmed", imgurl: srcimage ? srcimage: "./images/AdobeStock_236655482.svg", countitem:target_product.price }))
-                    alert("you shwor from this order : " +countTs+ " from " +target_product.name.ar +" by   $"+
+                    alert("you shwor from this order : " +countTs+ " from " +target_product.name[ i18n.language] +" by   $"+
                     target_product.price );
                     dispatch(additem());
                    

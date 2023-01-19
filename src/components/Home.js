@@ -6,10 +6,12 @@ import Owlone from "./Owlone";
 import AllImage from "./AllImage";
 import Owlpage from "./Owlpage";
 
+import { useTranslation } from 'react-i18next';
 
 
 
 function Home() {
+const { t, i18n } = useTranslation();
   
   return (
     <>  
@@ -46,39 +48,35 @@ function Home() {
       <div className="choose">
         <div className="container">
           <div className="que">
-            <h1>Why should you choose us?</h1>
+            <h1>{t("us.title")}</h1>
           </div>
           <div className="about">
             <div className="chooseabout">
               <img src='./images/Free Shipping.svg' alt=""/>
-              <h2>Free Shipping</h2>
+              <h2>{t("us.head1")}</h2>
               <p>
-                All purchases over $399 are eligible for free shipping via UPS
-                Pack and Ship.
+               {t("us.text1")}
               </p>
             </div>
             <div className="chooseabout">
               <img src='./images/Payments.svg' alt="shipping" />
-              <h2>Easy Payments</h2>
+              <h2>{t("us.head2")}</h2>
               <p>
-                All payments are processed instantly over a secure payment
-                protocol.
+               {t("us.text2")}
               </p>
             </div>
             <div className="chooseabout">
               <img src='./images/Money.svg' alt="shipping" />
-              <h2>Money-Back Guarantee</h2>
+              <h2>{t("us.head3")}</h2>
               <p>
-                If an item arrived damaged or you've changed your mind, you can
-                send it back for a full refund.
+              {t("us.text3")}
               </p>
             </div>
             <div className="chooseabout">
               <img src='./images/Finest Quality.svg' alt="shipping" />
-              <h2>Finest Quality</h2>
+              <h2>{t("us.head4")}</h2>
               <p>
-                Designed to last, each of our products has been crafted with the
-                finest materials.
+                {t("us.text4")}
               </p>
             </div>
           </div>

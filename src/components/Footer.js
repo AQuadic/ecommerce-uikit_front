@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { useTranslation } from 'react-i18next';
 function Footer() {
   const [socials , setdata]=useState("")
   useEffect(()=>{
@@ -16,10 +16,14 @@ function Footer() {
     }
     handelcat()
   },[])
+const { t, i18n } = useTranslation();
+
+
   return (
    <>
  
 <div className="newfooter">
+
   <div className="container">
     <footer className="footer-dec">
   
@@ -30,8 +34,7 @@ function Footer() {
       
     </li>
     <li>
-      <h4>House My Brand designs clothing for the young, the old &
-everyone in between – but most importantly, for the fashionable</h4>
+      <h4>{t('footer.footer_about')}</h4>
    </li>
    <li>
     <p className="footer-links">
@@ -51,23 +54,23 @@ everyone in between – but most importantly, for the fashionable</h4>
   
      <div className="r-footer">
      <ul>
-      <li className="r-title">Shopping online</li>
-      <li><Link href="">Order Status</Link></li>
-      <li><Link href="">Shipping and Delivery</Link></li>
-      <li><Link href="">Returns</Link></li>
-      <li><Link href="">Payment Options</Link></li>
-      <li><Link href="">Contact Us</Link></li>
+      <li className="r-title"  >{t('footer.footer_head.head1')}</li>
+      <li><Link href="">{t('footer.footer_head1.1')}</Link></li>
+      <li><Link href="">{t('footer.footer_head1.2')}</Link></li>
+      <li><Link href="">{t('footer.footer_head1.3')}</Link></li>
+      <li><Link href="">{t('footer.footer_head1.4')}</Link></li>
+      <li><Link href="">{t('footer.footer_head1.5')}</Link></li>
      </ul>
      <ul>
-      <li className="r-title">Information</li>
-      <li><Link href="#">Gift Cards</Link></li>
-      <li><Link href="#">Find a store</Link></li>
-      <li><Link href="">Newsletter</Link></li>
-      <li><Link href="">Bacome a member</Link></li>
-      <li><Link href="">Site feedback</Link></li>
+      <li className="r-title" >{t('footer.footer_head.head2')}</li>
+      <li><Link href="#">{t('footer.footer_head2.1')}</Link></li>
+      <li><Link href="#">{t('footer.footer_head2.2')}</Link></li>
+      <li><Link href="">{t('footer.footer_head2.3')}</Link></li>
+      <li><Link href="">{t('footer.footer_head2.4')}</Link></li>
+      <li><Link href="">{t('footer.footer_head2.5')}</Link></li>
      </ul>
      <ul>
-      <li className="r-title">Contact</li>
+      <li className="r-title">{t('footer.footer_head.head3')}</li>
       <li><p>store@uikit.com</p></li>
       <li><p>Hotline: +1 131 138 138</p></li>
      </ul>

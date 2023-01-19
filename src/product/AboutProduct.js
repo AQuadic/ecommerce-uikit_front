@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Skeleton from "@mui/material/Skeleton";
-import Avatar from "@mui/material/Avatar";
+
 function AboutProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();

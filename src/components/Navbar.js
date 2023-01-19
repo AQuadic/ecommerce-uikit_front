@@ -1,8 +1,10 @@
-import { faL } from '@fortawesome/free-solid-svg-icons';
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 
 function Navbar2() {
@@ -78,6 +80,15 @@ useEffect(()=>{
 },[])
 
 console.log(catigory)
+const [lang ,setlang]=useState("en");
+const { t, i18n } = useTranslation();
+const langEn =()=>{
+  i18n.changeLanguage(lang)
+ console.log(lang)
+  lang ==="en"?setlang("ar"): setlang("en")
+
+}
+
   return (
    <>
   
@@ -108,7 +119,7 @@ console.log(catigory)
                 catigory.slice(0,3).map((data)=>{
                   return(
                     <li className="nav-item" key={data.id}>
-                      <Link className="nav-link" to="#">{data.name.ar} </Link>
+                      <Link className="nav-link" to="#">{data.name[ i18n.language]} </Link>
                     </li>
                   )
                 }):<li className="nav-item active" >
@@ -127,11 +138,14 @@ console.log(catigory)
                 <p onClick={()=>navegate('/pay')}>{qi}</p>
               </li>
              
-              {state_user?<li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
+      {state_user?<li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
       <img  src='./images/exit.png' alt=""  />
     </li>:<li onClick={()=>{navegate('/login') }}>
       <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
     </li>}
+    <li>
+      <img src='./images/lang.svg' onClick={()=>{ langEn()}} alt=''/>
+    </li>
              
               
             </ul>

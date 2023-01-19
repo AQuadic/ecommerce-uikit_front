@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Slider from "react-slick";
-
+import { useTranslation } from 'react-i18next';
 function Owlone() {
+const { t, i18n } = useTranslation();
+console.log(i18n.language)
   const category_idd = useSelector((state) => state.counter.category_id);
   console.log(category_idd)
   const ref = useRef();
@@ -160,7 +162,7 @@ Object.keys(params)
                     />
 
                     <div className="about">
-                      <p>{product.name.ar}</p>
+                      <p>{product.name[i18n.language]}</p>
                       <span>${product.price}</span>
                     </div>
                   </div>
@@ -203,7 +205,7 @@ Object.keys(params)
                     />
 
                     <div className="about">
-                      <p>{product.name.ar}</p>
+                      <p>{product.name[i18n.language]}</p>
                       <span>${product.price}</span>
                     </div>
                   </div>
@@ -267,14 +269,14 @@ Object.keys(params)
     <>
       <Container className="product">
         <div className="headselect">
-          <h2>Selected just for you</h2>
+          <h2>{t("owlone.owl_text")}</h2>
           <button
             onClick={() => {
               navigate("/allproduct");
               window.scrollTo(100, 100);
             }}
           >
-            Show more
+            {t("owlone.owl_btn")}
           </button>
         </div>
 {
@@ -316,7 +318,7 @@ Object.keys(params)
                       />
 
                       <div className="about">
-                        <p>{product.name.ar}</p>
+                        <p>{product.name.i18n}</p>
                         <span>${product.price}</span>
                       </div>
                     </div>
@@ -359,7 +361,7 @@ Object.keys(params)
                       />
 
                       <div className="about">
-                        <p>{product.name.ar}</p>
+                        <p>{product.name.i18n}</p>
                         <span>${product.price}</span>
                       </div>
                     </div>
