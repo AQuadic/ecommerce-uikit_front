@@ -82,8 +82,8 @@ console.log(target_product)
           <div className="images">
             {valname !== "ahmed" ? (
               <>
-                <img src={srcimage} className="image1" alt="" />
-                <img src={srcimage} className="image2" alt="" />
+                <img src={target_product.image.url} className="image1" alt="" />
+                <img src={target_product.image.url} className="image2" alt="" />
               </>
             ) :  (
               <>
