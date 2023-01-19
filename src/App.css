@@ -130,7 +130,7 @@ a,a:hover {
 }
   @media (max-width: 992px) {
     div#navbarSupportedContent {
-      background-color: #705f5f7a;
+      background-color: #cfcfcf7a;
       max-width: 100%;
       padding: 20px 0px;
       margin-top: 10px;
@@ -481,6 +481,7 @@ background-position: center;
   background-color: #70707033;
   display: block;
   transition: 0.5s;
+  min-height: 254px;
 }
 .carousel-react ul li .item img:hover, .about-product .item img:hover{
   transform: scale(1.03);
@@ -517,7 +518,9 @@ background-position: center;
   
     margin: auto;
   }
+  
 }
+
 /*.carousel-react ul {
   gap: 50px;
 }*/
@@ -1776,7 +1779,7 @@ font-size: 12px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   row-gap: 40px;
   margin: 40px auto;
-  height: 100vh;
+  max-height: 100vh;
     overflow-y: auto;
 }
 @media(max-width:1400px){
@@ -2103,4 +2106,19 @@ font-weight: 300;
 .css-wjh20t-MuiPagination-ul {
  
   justify-content: center;
+}
+.about-product .item.load{
+
+}
+@media (max-width:500px){
+  
+  .carousel-react ul li .item img, .about-product .item img {
+ 
+    min-height: 194px;
+  }
+  .about-product .item {
+  
+    margin: 0px 0.5rem;
+ 
+}
 }
