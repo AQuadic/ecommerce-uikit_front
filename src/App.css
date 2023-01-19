@@ -1777,7 +1777,7 @@ font-size: 12px;
   row-gap: 40px;
   margin: 40px auto;
   height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 @media(max-width:1400px){
   .about-product .part2 {

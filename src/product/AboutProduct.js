@@ -9,7 +9,7 @@ import { counteraction } from "../data/data";
 function AboutProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { owl, idowl,sendata } = counteraction;
+  const { owl, idowl,sendata,send_data, category_id  } = counteraction;
   const [alldata ,setalldata]=useState();
   const [page ,setPage]=useState();
   console.log(page)
@@ -62,9 +62,12 @@ function AboutProduct() {
               id:e.target.id,
               imgurl:e.target.src
           }))
+          dispatch(send_data(data));
+          dispatch(category_id(data.category_id));
             navigate("/product");
             dispatch(owl(e.target.src));
             dispatch(idowl(e.target.id));
+
           }}
         >
           <img
