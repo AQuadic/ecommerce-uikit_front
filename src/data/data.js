@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const init = {
-  target_product:"aliiiiiiiiiiiiiiiii",
-  category_id:10,
+  target_product: "aliiiiiiiiiiiiiiiii",
+  category_id: 10,
   value: 1,
   id: "",
   name: "ahmed",
@@ -23,12 +23,12 @@ const counterslice = createSlice({
   initialState: init,
   reducers: {
     send_data: (state, action) => {
-    state.target_product=action.payload
+      state.target_product = action.payload;
     },
     category_id: (state, action) => {
-      state.category_id=action.payload
-      },
-    
+      state.category_id = action.payload;
+    },
+
     inc: (state) => {
       state.value -= 1;
     },
@@ -37,17 +37,15 @@ const counterslice = createSlice({
     },
     idowl: (state, action) => {
       state.name = action.payload;
-      
     },
     recount: (state, action) => {
-        state.countts = 1;
-        state.getdata.qiitem=1;
-        
-      },
+      state.countts = 1;
+      state.getdata.qiitem = 1;
+    },
     counter: (state, action) => {
       state.countts += action.payload;
       state.getdata.qiitem = state.countts;
-      console.log( state.getdata.qiitem)
+      console.log(state.getdata.qiitem);
     },
     additem: (state, action) => {
       state.allitem.push({
@@ -58,13 +56,11 @@ const counterslice = createSlice({
       });
     },
     sendata: (state, action) => {
-      console.log(action);
       state.getdata.id = action.payload.id;
       state.getdata.imgurl = action.payload.imgurl;
       state.getdata.countitem = state.countts;
     },
     pay: (state, action) => {
-      
       state.qitem++;
 
       const id = state.getdata.id;
@@ -76,21 +72,22 @@ const counterslice = createSlice({
         const curentitem = state.itempay.filter(
           (item, index) => item.id === id
         );
-        
-        curentitem[0].qiitem+= state.getdata.qiitem;
-curentitem[0].countitem =state.countts;
-console.log(curentitem[0].qiitem)
+
+        curentitem[0].qiitem += state.getdata.qiitem;
+        curentitem[0].countitem = state.countts;
+        console.log(curentitem[0].qiitem);
         /*state.countts++;*/
       }
-      state.totelprice=state.itempay.reduce(
-        (total, price) => total + price
-      ,0);
+      state.totelprice = state.itempay.reduce(
+        (total, price) => total + price,
+        0
+      );
       console.log(state.totelprice);
       console.log(state.itempay[0].id);
-      
+
       state.qitem = state.itempay.reduce((acc, curr) => acc + curr.qiitem, 0);
       state.totelprice = state.qitem * 90 - 0.01;
-      console.log( state.getdata.qiitem)
+      console.log(state.getdata.qiitem);
     },
 
     removeitem: (state, action) => {

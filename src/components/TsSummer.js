@@ -36,7 +36,6 @@ function TsSummer() {
       id: valname,
       imgurl: srcimage,
     });
-    console.log(itemget);
   };
   return (
     <>
