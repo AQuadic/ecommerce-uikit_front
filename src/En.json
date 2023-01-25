@@ -1,55 +1,88 @@
 {
-    "footer": {
-        "footer_head":{
-            "head1":"Shopping online",
-            "head2":"Information",
-            "head3":"Contact"
-        },
-        "footer_head1":{
-            "1":"Order Status",
-            "2":"Shipping and Delivery",
-            "3":"Returns",
-            "4":"Payment Options",
-            "5":"Contact Us"
-        },
-        "footer_head2":{
-            "1":"Gift Cards",
-            "2":"Find a store",
-            "3":"Newsletter",
-            "4":"Bacome a member",
-            "5":"Site feedback"
-        },
-        "footer_about":"House My Brand designs clothing for the young, the old & everyone in between – but most importantly, for the fashionable"
-      
+  "footer": {
+    "footer_head": {
+      "head1": "Shopping online",
+      "head2": "Information",
+      "head3": "Contact"
     },
-"owlone":{
-    "owl_text":"Selected just for you",
-    "owl_btn":"Show more"
+    "footer_head1": {
+      "1": "Order Status",
+      "2": "Shipping and Delivery",
+      "3": "Returns",
+      "4": "Payment Options",
+      "5": "Contact Us"
+    },
+    "footer_head2": {
+      "1": "Gift Cards",
+      "2": "Find a store",
+      "3": "Newsletter",
+      "4": "Bacome a member",
+      "5": "Site feedback"
+    },
+    "footer_about": "House My Brand designs clothing for the young, the old & everyone in between – but most importantly, for the fashionable"
+  },
+  "owlone": {
+    "owl_text": "Selected just for you",
+    "owl_btn": "Show more"
+  },
+  "us": {
+    "title": "Why should you choose us?",
+    "head1": "Free Shipping",
+    "text1": "All purchases over $399 are eligible for free shipping via UPS Pack and Ship.",
+    "head2": "Easy Payments",
+    "text2": "All payments are processed instantly over a secure payment protocol.",
+    "head3": "Money-Back Guarantee",
+    "text3": "If an item arrived damaged or you've changed your mind, you can send it back for a full refund.",
+    "head4": "Finest Quality",
+    "text4": "Designed to last, each of our products has been crafted with the finest materials."
+  },
+  "us2": {
+    "head1": "Free Shipping",
+    "text1": "On purchases over $199",
+    "head2": "On purchases over $199",
+    "text2": "Our clients' opinions speak for themselves",
+    "head3": "Originality Guaranteed",
+    "text3": "30 days warranty for each product from our store"
+  },
+  "ts": {
+    "crumb2": "T-Shirt",
+    "crumb3": "On purchases over $199",
+    "delevery1": "Standard shipment ",
+    "delevery11": "Free within 3-6 business days",
+    "delevery2": "Express delivery",
+    "delevery22": "$35,00 available",
+    "sale": "SALE",
+    "Pro_id": "Product ID",
+    "Size": "Size",
+    "Quantity": "Quantity",
+    "Add": " Add to cart",
+    "Description": "Description",
+    "Reviews": "Reviews"
+  },
+  "pay": {
+    "head": "Shopping Cart",
+    "table1": "Product",
+    "table2": "Size",
+    "table3": "Ammount",
+    "table4": "Price",
+    "pay_f1": "Continue Shopping",
+    "pay_f2": "Promo Code",
+    "pay_f3": "Total cost",
+    "pay_f4": "CHECKOUT"
+  },
+  "payment": {
+    "head": "Shipping and Payment",
 
-},
-"us":{
-    "title":"Why should you choose us?",
-    "head1":"Free Shipping",
-    "text1":"All purchases over $399 are eligible for free shipping via UPS Pack and Ship.",
-    "head2":"Easy Payments",
-    "text2":"All payments are processed instantly over a secure payment protocol.",
-    "head3":"Money-Back Guarantee",
-    "text3":"If an item arrived damaged or you've changed your mind, you can send it back for a full refund.",
-    "head4":"Finest Quality",
-    "text4":"Designed to last, each of our products has been crafted with the finest materials."
-},
-"us2":{
-   
-    "head1":"Free Shipping",
-    "text1":"On purchases over $199",
-    "head2":"On purchases over $199",
-    "text2":"Our clients' opinions speak for themselves",
-    "head3":"Originality Guaranteed",
-    "text3":"30 days warranty for each product from our store"
-    
-},
-    "footer2": "Welcome to React and react-i18next 2",
-    "imagell_title": "Subscribe to our newsletter and receive exclusive offers every week",
-    "imagell_input": "Enter your email",
-    "imagell_btn": "Subscribe"
-  }
+    "head2": "Shipping information",
+    "head3": "Payment method",
+    "head4": "Delivery method",
+    "head5": "Your cart",
+    "pay_f1": "Back",
+    "pay_f2": "Continue shopping",
+    "pay_f3": " Proceed to payment"
+  },
+  "footer2": "Welcome to React and react-i18next 2",
+  "imagell_title": "Subscribe to our newsletter and receive exclusive offers every week",
+  "imagell_input": "Enter your email",
+  "imagell_btn": "Subscribe"
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 function Dec() {
+  const { t, i18n } = useTranslation();
   const dec1 = useRef();
   const dec2 = useRef();
   const part1 = useRef();
@@ -38,7 +40,7 @@ function Dec() {
               className="activebtn"
             >
               {" "}
-              Description
+              {t("ts.Description")}
             </button>
             <button
               id="rev"
@@ -46,7 +48,7 @@ function Dec() {
               onClick={(e) => handeldec2(e)}
               className="opcolor"
             >
-              Reviews (2)
+              {t("ts.Reviews")} (2)
             </button>
           </div>
 
