@@ -161,7 +161,7 @@ function Payment() {
               })}
 
               <div className="payment-total">
-                <h3>Total cost</h3>
+                <h3>{t("pay.pay_f3")}</h3>
                 <h4>${totalprice}</h4>
               </div>
             </div>

@@ -6,8 +6,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Skeleton from "@mui/material/Skeleton";
+import { useTranslation } from "react-i18next";
 
 function AboutProduct() {
+  const { t, i18n } = useTranslation();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { owl, idowl, sendata, send_data, category_id } = counteraction;
@@ -35,7 +38,8 @@ function AboutProduct() {
           },
         })
         .then((res) => {
-          console.log(res.data.data);setalldata(res.data.data)
+          console.log(res.data.data);
+          setalldata(res.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -82,11 +86,9 @@ function AboutProduct() {
                 }}
               >
                 <img id={data.id} src={data.image.url} alt="t-shert" />
-                {
-                data.before_price > 0 ?<div className="sale">30%</div> :null 
-                }
+                {data.before_price > 0 ? <div className="sale">30%</div> : null}
                 <div className="about">
-                  <p>{data.name.ar}</p>
+                  <p>{data.name[i18n.language]}</p>
                   {data.before_price > 0 ? (
                     <>
                       <span className="red">${data.peice}</span>

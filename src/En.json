@@ -79,7 +79,32 @@
     "head5": "Your cart",
     "pay_f1": "Back",
     "pay_f2": "Continue shopping",
-    "pay_f3": " Proceed to payment"
+    "pay_f3": " Proceed to payment",
+    "pay_d": "You are $30,02 away from free shipping!"
+  },
+  "log": {
+    "head": "Back to store",
+
+    "log": "Log in",
+    "head3": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "head4": "Keep me signed in",
+    "head5": "Forgot Password?",
+    "pay_f1": "Back",
+    "log_btn": "Log in",
+    "pay_f3": "Not a member yet? ",
+    "Sign": "Sign up"
+  },
+  "Sign": {
+    "head2": "Create an account and discover the benefits",
+    "head3": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "head4": "I agree to the Google Terms of Service and Privacy Policy",
+    "pay_f3": "Are you already a member?",
+    "Sign_btn": "Sign in"
+  },
+  "Forgot": {
+    "head2": "Forgot your password?",
+    "head3": "Enter your email or phone number and recover your account",
+    "Forgot_btn": "Reset password"
   },
   "footer2": "Welcome to React and react-i18next 2",
   "imagell_title": "Subscribe to our newsletter and receive exclusive offers every week",
