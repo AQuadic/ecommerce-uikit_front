@@ -4,11 +4,13 @@ import { Container } from "react-bootstrap";
 
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Slider from "react-slick";
 import { useTranslation } from 'react-i18next';
 function Owlone() {
+  const {id} = useParams()
+  console.log(id)
 const { t, i18n } = useTranslation();
 console.log(i18n.language)
   const category_idd = useSelector((state) => state.counter.category_id);
@@ -58,7 +60,7 @@ console.log(i18n.language)
   };
   const [products, setproducts] = useState();
   const [products_same, setproducts_same] = useState();
-
+  const [check_id, setcheck_id] = useState(0)
   useEffect(() => {
 
     const handelcat = () => {
@@ -79,20 +81,20 @@ console.log(i18n.language)
         });
     };
     handelcat();
-    window.location.pathname !== "/product" ? setcheck_id(0) : setcheck_id(category_idd) ;
+ 
     
       re()
-    
-  }, []);
+      re2()
+  }, [check_id]);
   
-  const [check_id, setcheck_id] = useState(0)
+ 
  console.log(check_id)
  const re =()=>{
   const url = new URL(
     "https://v2.freshfarm.ae/api/v1/users/products"
 );
   const params = {
-    "category_id": category_idd|"10",
+    "category_id": check_id|"10",
    
 };
 Object.keys(params)
@@ -109,7 +111,24 @@ Object.keys(params)
     }
     handelsame()
 }
+const re2 =()=>{
+  const url = new URL(
+    `https://v2.freshfarm.ae/api/v2/users/products/${id}`
+);
+  
 
+    const handelsame =()=>{
+      axios.get(url,{
+    headers:{
+      "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Accept-Language": i18n.language,
+    }
+    }).then((res)=>{console.log(res.data); setcheck_id(res.data.category_id)
+    }).catch((err)=>{console.log(err)}) 
+    }
+    handelsame()
+}
 
 
   const dispatch = useDispatch();

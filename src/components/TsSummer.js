@@ -6,6 +6,7 @@ import Dec from "../product/Dec";
 
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import Skeleton from "@mui/material/Skeleton";
 
 function TsSummer(prams) {
   const { t, i18n } = useTranslation();
@@ -17,7 +18,7 @@ const {id} =useParams()
   const [getproduct, setproduct] = useState();
  
 
-const re =()=>{
+const re2 =()=>{
   const url = new URL(
     `https://v2.freshfarm.ae/api/v2/users/products/${id}`
 );
@@ -55,9 +56,9 @@ const re =()=>{
  
   useEffect(() => {
     dispatch(recount());
-    re()
+    re2()
     reval();
-  }, []);
+  }, [id]);
   const reval = () => {
     setitremget({
       id: valname,
@@ -258,7 +259,44 @@ const re =()=>{
         </div>
       </div>
       <Dec />
-    </> : "nodata"
+    </> : <div className="item load">
+     <div >
+              <Skeleton
+                variant="rectangular"
+                animation="wave"
+                width={"600px"}
+                height={230}
+              />
+              <Skeleton animation="wave" width={"600px"} />
+              <Skeleton
+                variant="rounded"
+                animation="wave"
+                width={'300px'}
+                height={20}
+                
+   
+    
+              />
+            </div>
+            <div>
+               <Skeleton
+                variant="rectangular"
+                animation="wave"
+                width={"400px"}
+                height={80}
+              />
+              <Skeleton animation="wave" width={"400px"}  height={60}/>
+              <Skeleton
+                variant="rounded"
+                animation="wave"
+                width={'300px'}
+                height={50}
+                
+   
+    
+              />
+            </div>
+           </div>
   );
 }
 

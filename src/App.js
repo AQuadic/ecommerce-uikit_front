@@ -10,6 +10,7 @@ import Forget from './Email/Forget';
 import Login from './Email/Login';
 import Signup from './Email/Signup';
 import Product from './product/Product';
+import { useTranslation } from "react-i18next";
 
 import Pay from './product/Pay';
 import store from './data/counterSilce';
@@ -17,9 +18,15 @@ import All_product from './product/All_product';
 import Payment from './product/Payment';
 import TsSummer from './components/TsSummer';
 export const Contextid = createContext();
+
 function App() {
 
- 
+
+  const { t, i18n } = useTranslation();
+ useEffect(()=>{
+  i18n.language === "ar"?window.document.dir='rtl':window.document.dir='ltr'
+ },[i18n.language])
+ console.log(window.document.dir)
   const filter = (id)=>{
     console.log(id)
   }
@@ -34,10 +41,10 @@ function App() {
      <Navbar2/>
       <Routes>
         <Route path='/'  element={<Home   />}/>
-        <Route path='/product'  >
-          <Route index  element={<All_product/>}/>
-        <Route path={"/product:id"} element={<Product />} />
-        </Route>
+        <Route path='/product' element={<All_product/>} />
+          
+        <Route path="/product/:id" element={<Product />} />
+       
         <Route path='/login' element={<Login filter={filter}/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/forget' element={<Forget/>}/>

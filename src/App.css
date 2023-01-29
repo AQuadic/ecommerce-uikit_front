@@ -79,7 +79,7 @@ a.navbar-brand {
 
 div#navbarSupportedContent {
   max-width: 62%;
-  justify-content: center;
+  justify-content: space-between;
   gap: 37px;
   align-items: center;
 }
@@ -89,7 +89,7 @@ ul.navbar-nav.mr-auto {
   justify-content: center;
   align-items: center;
   gap: 23px;
-  margin-right: auto;
+
 }
 
 ul.nav-icon {
@@ -1573,7 +1573,7 @@ tbody tr td:last-child:hover {
 .fillter .form-check {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 30px;
 
   margin-bottom: 18px;
 }
@@ -1587,6 +1587,10 @@ tbody tr td:last-child:hover {
 }
 .fillter .accordion-button::after {
   background-size: 12px;
+}
+html[dir=rtl] .fillter .accordion-button::after{
+  margin-right: auto;
+  margin-left: 0;
 }
 .fillter .accordion-button:not(.collapsed) {
   color: #212529;
@@ -2031,4 +2035,9 @@ tbody tr td:last-child:hover {
   .about-product .item {
     margin: 0px 0.5rem;
   }
+}
+.item.load {
+  display: flex;
+  margin: 50px 0pc;
+  gap: 2%;
 }

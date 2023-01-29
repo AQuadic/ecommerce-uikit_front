@@ -67,6 +67,7 @@ function Navbar2() {
     handelcat()
   },[])
 useEffect(()=>{
+  console.log(i18n)
   const handelcat =()=>{
     axios.get("https://v2.freshfarm.ae/api/v1/meta/data",{
   headers:{
