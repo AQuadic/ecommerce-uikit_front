@@ -134,14 +134,14 @@ const langEn =()=>{
                 <img src='./images/noun_Search_2102816 (2).svg' alt=""  />
               </li>
               <li >
-                <img onClick={()=>navegate('/allproduct')} src='./images/noun_cart_2102832 (4).svg' alt=""  />
+                <img onClick={()=>navegate('/product')} src='./images/noun_cart_2102832 (4).svg' alt=""  />
                 <p onClick={()=>navegate('/pay')}>{qi}</p>
               </li>
              
       {state_user?<li onClick={()=>{out();  navegate('/login');setstate_user(false)}}>
       <img  src='./images/exit.png' alt=""  />
     </li>:<li onClick={()=>{navegate('/login') }}>
-      <img src='./images/noun_avatar_2102861 (2).svg' alt=""  />
+      <img src= './images/noun_avatar_2102861 (2).svg' alt=""  />
     </li>}
     <li>
       <img src='./images/lang.svg' onClick={()=>{ langEn()}} alt=''/>

@@ -80,7 +80,7 @@ function AboutProduct() {
                   );
                   dispatch(send_data(data));
                   dispatch(category_id(data.category_id));
-                  navigate("/product");
+                  navigate(`/product/${data.id}`);
                   dispatch(owl(e.target.src));
                   dispatch(idowl(e.target.id));
                 }}

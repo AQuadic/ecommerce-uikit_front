@@ -157,7 +157,7 @@ Object.keys(params)
 
                         dispatch(owl(e.target.src));
                         dispatch(idowl(e.target.id));
-                        navigate("/product");
+                        navigate(`/product/${product.id}`);
                       }}
                     />
 
@@ -200,7 +200,7 @@ Object.keys(params)
 
                         dispatch(owl(e.target.src));
                         dispatch(idowl(e.target.id));
-                        navigate("/product");
+                        navigate(`/product/${product.id}`);
                       }}
                     />
 
@@ -272,7 +272,7 @@ Object.keys(params)
           <h2>{t("owlone.owl_text")}</h2>
           <button
             onClick={() => {
-              navigate("/allproduct");
+              navigate("/product");
               window.scrollTo(100, 100);
             }}
           >
