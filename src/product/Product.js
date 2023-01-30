@@ -9,15 +9,15 @@ import TsSummer from '../components/TsSummer'
 
 
 function Product() {
-  const {id} = useParams()
-  console.log(id)
+ 
+ 
   return (
    <>
  
 
   
   
-   <TsSummer id={id} />
+   <TsSummer  />
  
    <Owlone/>
    <AllImage/>

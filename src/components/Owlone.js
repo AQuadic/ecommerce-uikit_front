@@ -301,142 +301,14 @@ const re2 =()=>{
             {t("owlone.owl_btn")}
           </button>
         </div>
-{
-  slid()
-}
-        {/* { check_id >0 ?
-          <Slider
-            ref={ref}
-            {...settings}
-            onInit={() => {
-              ref.current
-                ? console.log("yes slid")
-                : console.log("noooo slide");
-            }}
-          >
-            {products_same
-              ? products_same.map((product) => {
-                  return (
-                    <div className="item" key={product.id}>
-                      <img
-                        id={product.id}
-                        src={product.image.url}
-                        alt="t-shert"
-                        onClick={(e) => {
-                          setgetitem({ id: e.target.id, imgurl: e.target.src });
-                          dispatch(
-                            sendata({ id: e.target.id, imgurl: e.target.src })
-                          );
-                          dispatch(send_data(product));
-                          dispatch(category_id(product.category_id));
 
-                          console.log(product);
-                          window.scrollTo(100, 100);
+        
+        {
+          slid()
+        }
+      
 
-                          dispatch(owl(e.target.src));
-                          dispatch(idowl(e.target.id));
-                          navigate("/product");
-                        }}
-                      />
-
-                      <div className="about">
-                        <p>{product.name.i18n}</p>
-                        <span>${product.price}</span>
-                      </div>
-                    </div>
-                  );
-                })
-              : null}
-          </Slider> :
-            <Slider
-            ref={ref}
-            {...settings}
-            onInit={() => {
-              ref.current
-                ? console.log("yes slid")
-                : console.log("noooo slide");
-            }}
-          >
-            {products
-              ? products.map((product) => {
-                  return (
-                    <div className="item" key={product.id}>
-                      <img
-                        id={product.id}
-                        src={product.image.url}
-                        alt="t-shert"
-                        onClick={(e) => {
-                          setgetitem({ id: e.target.id, imgurl: e.target.src });
-                          dispatch(
-                            sendata({ id: e.target.id, imgurl: e.target.src })
-                          );
-                          dispatch(send_data(product));
-                          dispatch(category_id(product.category_id));
-
-                          console.log(product);
-                          window.scrollTo(100, 100);
-
-                          dispatch(owl(e.target.src));
-                          dispatch(idowl(e.target.id));
-                          navigate("/product");
-                        }}
-                      />
-
-                      <div className="about">
-                        <p>{product.name.i18n}</p>
-                        <span>${product.price}</span>
-                      </div>
-                    </div>
-                  );
-                })
-              : null}
-          </Slider>
-        } */}
-
-        {/* 
-
-          <div className="item">
-            <img
-              id="sayed"
-              src="./images/AdobeStock_118120200.svg"
-              alt="t-shert"
-              onClick={(e) => {
-                setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-                window.scrollTo(100, 100);
-                sethow(e.target.id);
-                dispatch(owl(e.target.src));
-                dispatch(idowl(e.target.id));
-                navigate("/product");
-              }}
-            />
-            <div className="about">
-              <p>Loose Knit 3/4 Sleeve</p>
-              <span>$119.99</span>
-            </div>
-          </div>
-
-          <div className="item">
-            <img
-              id="hema"
-              src="./images/AdobeStock_136908398.svg"
-              alt="t-shert"
-              onClick={(e) => {
-                setgetitem({ id: e.target.id, imgurl: e.target.src });
-                dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-                window.scrollTo(100, 100);
-                sethow(e.target.id);
-                dispatch(owl(e.target.src));
-                dispatch(idowl(e.target.id));
-                navigate("/product");
-              }}
-            />
-            <div className="about">
-              <p>Basic Slim Fit T-Shirt</p>
-              <span>$79.99</span>
-            </div>
-          </div>
-           */}
+        
       </Container>
     </>
   );
