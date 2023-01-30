@@ -4,13 +4,16 @@ import { Container } from "react-bootstrap";
 
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { counteraction } from "../data/data";
 import Slider from "react-slick";
 import { useTranslation } from 'react-i18next';
 function Owlone() {
   const {id} = useParams()
+  const url = useLocation()
+  console.log(url.pathname)
   console.log(id)
+  
 const { t, i18n } = useTranslation();
 console.log(i18n.language)
   const category_idd = useSelector((state) => state.counter.category_id);

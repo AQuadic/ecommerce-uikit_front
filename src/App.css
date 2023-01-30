@@ -2072,7 +2072,7 @@ margin-bottom: 80px;
 .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
  
   color: rgba(168, 168, 168, 0.85);
-  margin: -8px 0 0 0;
+  margin: -8px 0 0 0 !important;
   
 }
 .css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover {
