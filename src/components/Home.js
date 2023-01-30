@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Footer from "./Footer";
 import Owlone from "./Owlone";
@@ -7,17 +7,78 @@ import AllImage from "./AllImage";
 import Owlpage from "./Owlpage";
 
 import { useTranslation } from 'react-i18next';
+import axios from "axios";
 
 
 
 function Home() {
 const { t, i18n } = useTranslation();
+const [items_offer,setitem_offer]=useState();
+const offer = ()=>{
+  const url = new URL("https://v2.freshfarm.ae/api/v2/users/products");
+  const params = {
+    "offers": "1"
+  };
+  Object.keys(params).forEach((key) =>
+    url.searchParams.append(key, params[key])
+  );
+  const handelsame = () => {
+    axios
+      .get(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Accept-Language": "ar",
+        },
+      })
+      .then((res) => {
+        console.log(res.data.data);setitem_offer(res.data.data)
+      
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   
+  
+  handelsame();
+  
+}
+useEffect(()=>{
+  offer()
+
+},[])
+
+//const three_item =  items_offer.slice(0, 3):null;
   return (
     <>  
     <Owlpage />
-
-<div className="div">
+{
+ items_offer ? 
+ <div className="div">
+ <div className="container">
+ { items_offer.slice(0, 3).map((item)=>{
+    return (
+     
+        <div className="one">
+          <img src={item.image.url} alt="" />
+          <div className="about">
+            <h2>{item.name[i18n.language]}</h2>
+            <input type="button" value="view collection" />
+          </div>
+        </div>
+    
+       
+    
+   )
+  })
+}
+   </div>
+    </div>
+  
+   
+  : 
+  <div className="div">
   <div className="container">
     <div className="one">
       <img src='./images/adult-black-clothes-dark-1040421.svg' alt="" />
@@ -44,6 +105,8 @@ const { t, i18n } = useTranslation();
     </div>
   </div>
 </div>
+}
+
       <Owlone/>
       <div className="choose">
         <div className="container">
