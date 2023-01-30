@@ -1,13 +1,17 @@
-import { Pagination } from "@mui/material";
+//import { Pagination } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
-import Skeleton from "@mui/material/Skeleton";
+//import { Skeleton } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
+import Box from '@mui/material/Box';
+import {Skeleton} from '@mui/material';
 function AboutProduct() {
   const { t, i18n } = useTranslation();
 
@@ -80,7 +84,7 @@ function AboutProduct() {
                   );
                   dispatch(send_data(data));
                   dispatch(category_id(data.category_id));
-                  navigate(`/product/${data.id}`);
+                  navigate(`/${data.id}`);
                   dispatch(owl(e.target.src));
                   dispatch(idowl(e.target.id));
                 }}
@@ -103,7 +107,9 @@ function AboutProduct() {
           })
         ) : (
           <>
-            <div className="item load">
+        
+          
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -118,7 +124,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
-            <div className="item load">
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -133,7 +139,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
-            <div className="item load">
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -148,7 +154,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
-            <div className="item load">
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -163,7 +169,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
-            <div className="item load">
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -178,7 +184,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
-            <div className="item load">
+            <div className="item ">
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -193,6 +199,7 @@ function AboutProduct() {
                 height={20}
               />
             </div>
+            
           </>
         )}
         {/* <div className="item"
@@ -357,14 +364,15 @@ function AboutProduct() {
           </div>
         </div> */}
       </div>
-      <Pagination
+       <Pagination
         count={3}
         variant="outlined"
         color="secondary"
         onChange={(e, p) => {
           setPage(p);
-        }}
-      />
+        }} 
+      /> 
+     
     </div>
   );
 }

@@ -41,9 +41,11 @@ function App() {
      <Navbar2/>
       <Routes>
         <Route path='/'  element={<Home   />}/>
+          
+        
         <Route path='/product' element={<All_product/>} />
           
-        <Route path="/product/:id" element={<Product />} />
+        <Route path=":id" element={<Product />} />
        
         <Route path='/login' element={<Login filter={filter}/>}/>
         <Route path='/signup' element={<Signup/>}/>

@@ -5,6 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { counteraction } from "../data/data";
 import { useTranslation } from "react-i18next";
 
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+
+
+
+  
+    
+ 
+
 function Pay() {
   const { t, i18n } = useTranslation();
 
@@ -51,7 +61,7 @@ function Pay() {
                   <td className="fristtd">
                     <img src={item.imgurl} alt="" />
                     <div className="about">
-                      <h2>{item.id}</h2>
+                      <h2>{item.name}</h2>
                       <p className="codeproduct">#261311</p>
                     </div>
                   </td>
@@ -64,7 +74,11 @@ function Pay() {
                       dispatch(removeitem(item.id));
                     }}
                   >
-                    X
+                 <Tooltip title="Delete">
+      <IconButton>
+        <DeleteIcon />
+      </IconButton>
+    </Tooltip>
                   </td>
                 </tr>
               ))

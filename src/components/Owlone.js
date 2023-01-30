@@ -85,7 +85,7 @@ console.log(i18n.language)
     
       re()
       re2()
-  }, [check_id]);
+  }, [id,category_idd]);
   
  
  console.log(check_id)
@@ -99,7 +99,7 @@ console.log(i18n.language)
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
-    const handelsame =()=>{
+    const handelsame2 =()=>{
       axios.get(url,{
     headers:{
       "Content-Type": "application/json",
@@ -109,7 +109,7 @@ Object.keys(params)
     }).then((res)=>{console.log(res.data.data); setproducts_same(res.data.data)
     }).catch((err)=>{console.log(err)}) 
     }
-    handelsame()
+    handelsame2()
 }
 const re2 =()=>{
   const url = new URL(
@@ -117,7 +117,7 @@ const re2 =()=>{
 );
   
 
-    const handelsame =()=>{
+    const handelsame1 =()=>{
       axios.get(url,{
     headers:{
       "Content-Type": "application/json",
@@ -127,7 +127,7 @@ const re2 =()=>{
     }).then((res)=>{console.log(res.data); setcheck_id(res.data.category_id)
     }).catch((err)=>{console.log(err)}) 
     }
-    handelsame()
+    handelsame1()
 }
 
 
@@ -176,7 +176,7 @@ const re2 =()=>{
 
                         dispatch(owl(e.target.src));
                         dispatch(idowl(e.target.id));
-                        navigate(`/product/${product.id}`);
+                        navigate(`/${product.id}`);
                       }}
                     />
 
@@ -219,7 +219,7 @@ const re2 =()=>{
 
                         dispatch(owl(e.target.src));
                         dispatch(idowl(e.target.id));
-                        navigate(`/product/${product.id}`);
+                        navigate(`/${product.id}`);
                       }}
                     />
 

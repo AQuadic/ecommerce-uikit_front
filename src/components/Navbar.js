@@ -92,13 +92,11 @@ const langEn =()=>{
 
   return (
    <>
-  
-  
   <div className="new-nav">
       <div className="container">
         <div className="allnav">
         <nav className="navbar navbar-expand-lg navbar-light ">
-          <Link className="navbar-brand" to="/"> <img src='./images/noun_cloth_2129414.svg' alt="logo icon1" />
+          <Link className="navbar-brand" to="/"> <img src='noun_cloth_2129414.svg' alt="logo icon1" />
             <h1><span className="recolor">E-</span> Shop</h1>
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

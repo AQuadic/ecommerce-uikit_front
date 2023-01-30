@@ -6,7 +6,8 @@ import Dec from "../product/Dec";
 
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import Skeleton from "@mui/material/Skeleton";
+import { Container } from "react-bootstrap";
+import { Skeleton } from "@mui/material";
 
 function TsSummer(prams) {
   const { t, i18n } = useTranslation();
@@ -55,10 +56,11 @@ const re2 =()=>{
   console.log(target_product);
  
   useEffect(() => {
+    reval();
     dispatch(recount());
     re2()
-    reval();
-  }, [id]);
+   
+  }, [id,category_idd]);
   const reval = () => {
     setitremget({
       id: valname,
@@ -209,10 +211,11 @@ const re2 =()=>{
                   onClick={() => {
                     dispatch(
                       sendata({
-                        id: valname ? valname : "ahmed",
-                        imgurl: srcimage
-                          ? srcimage
-                          : "./images/AdobeStock_236655482.svg",
+                        id:  getproduct.id ,
+                        name:getproduct.name[i18n.language],
+                        imgurl: getproduct.image.url,
+                         
+                          
                         countitem: getproduct.price,
                       })
                     );
@@ -259,8 +262,8 @@ const re2 =()=>{
         </div>
       </div>
       <Dec />
-    </> : <div className="item load">
-     <div >
+    </> : <div className="item load container" >
+      <div >
               <Skeleton
                 variant="rectangular"
                 animation="wave"
@@ -295,7 +298,7 @@ const re2 =()=>{
    
     
               />
-            </div>
+                    </div>
            </div>
   );
 }

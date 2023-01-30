@@ -12,6 +12,7 @@ const init = {
   qitem: 0,
   totelprice: 1,
   getdata: {
+    name:"ahmed",
     id: "ahmed",
     imgurl: "./images/AdobeStock_236655482.svg",
     qiitem: 1,
@@ -56,6 +57,7 @@ const counterslice = createSlice({
       });
     },
     sendata: (state, action) => {
+      state.getdata.name = action.payload.name;
       state.getdata.id = action.payload.id;
       state.getdata.imgurl = action.payload.imgurl;
       state.getdata.countitem = state.countts;

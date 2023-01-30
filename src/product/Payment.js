@@ -151,7 +151,7 @@ function Payment() {
                     <img src={item.imgurl} alt="" />
                     <div className="order-name">
                       <h3>
-                        {item.qiitem} _ {item.id}
+                        {item.qiitem} _ {item.name}
                       </h3>
                       <p>#261311</p>
                     </div>

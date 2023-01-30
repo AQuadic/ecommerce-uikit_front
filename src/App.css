@@ -2024,6 +2024,7 @@ html[dir=rtl] .fillter .accordion-button::after{
 }
 .css-wjh20t-MuiPagination-ul {
   justify-content: center;
+  direction: initial;
 }
 .about-product .item.load {
 }
@@ -2038,6 +2039,18 @@ html[dir=rtl] .fillter .accordion-button::after{
 }
 .item.load {
   display: flex;
-  margin: 50px 0pc;
+margin-top: 40px;
+margin-bottom: 80px;
   gap: 2%;
+}
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+ 
+  color: rgba(168, 168, 168, 0.85);
+  margin: -8px 0 0 0;
+  
+}
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover {
+ 
+   color: rgb(255 0 0 / 85%);
+  
 }
