@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const init = {
   target_product: "aliiiiiiiiiiiiiiiii",
-  category_id: 10,
+  category_id: 0,
   value: 1,
   id: "",
   name: "ahmed",

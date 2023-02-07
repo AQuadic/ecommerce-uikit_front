@@ -13,10 +13,9 @@ import Product from './product/Product';
 import { useTranslation } from "react-i18next";
 
 import Pay from './product/Pay';
-import store from './data/counterSilce';
+
 import All_product from './product/All_product';
 import Payment from './product/Payment';
-import TsSummer from './components/TsSummer';
 export const Contextid = createContext();
 
 function App() {
@@ -33,7 +32,7 @@ function App() {
   const navref =useRef()
  
   return (
-  <Provider store={store}>
+
     <div className="App" ref={navref}>
      
       <BrowserRouter>
@@ -60,7 +59,7 @@ function App() {
       </BrowserRouter>
     
     </div>
-    </Provider>
+  
   );
 }
 

@@ -85,10 +85,10 @@ console.log(i18n.language)
     };
     handelcat();
  
-    
+    re2()
       re()
-      re2()
-  }, [id,category_idd]);
+      
+  }, [category_idd]);
   
  
  console.log(check_id)
@@ -97,7 +97,7 @@ console.log(i18n.language)
     "https://v2.freshfarm.ae/api/v1/users/products"
 );
   const params = {
-    "category_id": check_id|"10",
+    "category_id": check_id|category_idd,
    
 };
 Object.keys(params)
@@ -109,7 +109,7 @@ Object.keys(params)
         "Accept": "application/json",
         "Accept-Language": "ar",
     }
-    }).then((res)=>{console.log(res.data.data); setproducts_same(res.data.data)
+    }).then((res)=>{ setproducts_same(res.data.data);console.log(res.data.data);console.log("i get same product");slid()
     }).catch((err)=>{console.log(err)}) 
     }
     handelsame2()
@@ -138,10 +138,7 @@ const re2 =()=>{
 
   const navigate = useNavigate();
 
-  const [getitem, setgetitem] = useState({
-    id: "sayed",
-    imgurl: "gg",
-  });
+  
 
   const { owl, idowl, sendata, send_data, category_id } = counteraction;
 
@@ -167,7 +164,7 @@ const re2 =()=>{
                       src={product.image.url}
                       alt="t-shert"
                       onClick={(e) => {
-                        setgetitem({ id: e.target.id, imgurl: e.target.src });
+                       
                         dispatch(
                           sendata({ id: e.target.id, imgurl: e.target.src })
                         );
@@ -210,7 +207,7 @@ const re2 =()=>{
                       src={product.image.url}
                       alt="t-shert"
                       onClick={(e) => {
-                        setgetitem({ id: e.target.id, imgurl: e.target.src });
+                     
                         dispatch(
                           sendata({ id: e.target.id, imgurl: e.target.src })
                         );
@@ -237,54 +234,10 @@ const re2 =()=>{
         </Slider>
       
      )
-    }else{
-     <Slider {...settings }>
-       <div className="item">
-              <img
-                id="sayed"
-                src="./images/AdobeStock_118120200.svg"
-                alt="t-shert"
-                onClick={(e) => {
-                  setgetitem({ id: e.target.id, imgurl: e.target.src });
-                  dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-                  window.scrollTo(100, 100);
-               
-                  dispatch(owl(e.target.src));
-                  dispatch(idowl(e.target.id));
-                  navigate("/product");
-                }}
-              />
-              <div className="about">
-                <p>Loose Knit 3/4 Sleeve</p>
-                <span>$119.99</span>
-              </div>
-            </div>
-  
-            <div className="item">
-              <img
-                id="hema"
-                src="./images/AdobeStock_136908398.svg"
-                alt="t-shert"
-                onClick={(e) => {
-                  setgetitem({ id: e.target.id, imgurl: e.target.src });
-                  dispatch(sendata({ id: e.target.id, imgurl: e.target.src }));
-                  window.scrollTo(100, 100);
-                 
-                  dispatch(owl(e.target.src));
-                  dispatch(idowl(e.target.id));
-                  navigate("/product");
-                }}
-              />
-              <div className="about">
-                <p>Basic Slim Fit T-Shirt</p>
-                <span>$79.99</span>
-              </div>
-            </div>
-     </Slider>
     }
    
   }
-  slid()
+  
 
 
   return (
